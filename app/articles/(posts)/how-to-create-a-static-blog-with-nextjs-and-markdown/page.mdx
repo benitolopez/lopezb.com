@@ -1,0 +1,150 @@
+import Image from "next/image";
+import CodeTag from "@/app/components/tags/code";
+import { Code } from "@/app/components/tags/highlight";
+import Title from "@/app/components/tags/title";
+import Note from "@/app/components/tags/note";
+import snippets from "./snippets";
+
+export const metadata = {
+  title: "How to create a simple static blog with Next.js and markdown",
+  description:
+    "Build a simple static blog with Next.js, markdown (MDX), and TypeScript. Learn routing for posts and categories.",
+  date: "2024-09-08T00:00:00Z",
+};
+
+<Title title={metadata.title} date={metadata.date} />
+
+Although there are more immediate [solutions](https://wordpress.org/) for creating a blog, I have always been fascinated by static site generators, especially for this type of application: they are easy to maintain and generally perform well. Of course, the world is full of such tools, and I have no reason to prefer [Next.js](nextjs.org/) to [Hugo](https://gohugo.io/), [Astro](https://astro.build/), etc. And probably Next.js is slightly overkill for just a static blog.
+
+But then, why did I choose Next.js to create my site? Well, mainly because I consider the knowledge of Next.js a must-have skill for a web developer in 2024, and I wanted to work with the new App Router. Second, I needed React for features that I plan to add in the future. And, despite my reluctance to use frameworks as a first or only solution, I consider Next.js a nice and comfortable environment to work with React.
+
+So, what features are we going to discuss? As per the title, the blog will be static using Next.js (App Router). Thanks to MDX, posts can be written in Markdown. Finally, we will use Rehype Pretty Code for syntax highlighting.
+
+Let's start.
+
+## Setting up the Next.js project
+
+In this guide, I will use TypeScript and Next.js 14 with the new App Router. So be sure to select both at installation time with the command:
+
+<Code code={snippets[0].snippet} />
+
+## Integrating MDX for markdown content
+
+To use markdown to write our posts and simultaneously use JSX in the content, we need to install [MDX](https://mdxjs.com/). To install the package and its dependencies, run the command:
+
+<Code code={snippets[1].snippet} />
+
+And update the <CodeTag>next.config.mjs</CodeTag> file to allow you to use MDX and have the <CodeTag>.mdx</CodeTag> files act as pages and routes in the application:
+
+<Code code={snippets[2].snippet} file="next.config.mjs" />
+
+<Note title="Important info">
+  Since we will have to use Rehype which is ESM only, you will have to use{" "}
+  <CodeTag>next.config.mjs</CodeTag> as the file for configuration.
+</Note>
+
+As a final step, we need to add an <CodeTag>mdx-components.tsx</CodeTag> file in the root of the project. This file can be used to extend the default components. For example, you could extend the H1 tag and add Tailwind classes to style it. And so on.
+
+<Code code={snippets[3].snippet} file="mdx-components.tsx" />
+
+<Note title="Important info">
+  Without this file
+  <CodeTag>@next/mdx</CodeTag> cannot work.
+</Note>
+
+At this point, you will be able to use <CodeTag>page.mdx</CodeTag> files inside the <CodeTag>/app</CodeTag> folder to write content in both Markdown and JSX.
+
+## Setting up routing for articles and categories
+
+The idea is to use dynamic routing to organize articles and categories. So, <CodeTag>/app/blog/(posts)/hello-world/page.mdx</CodeTag> for posts and <CodeTag>/app/category/[category]/page.tsx</CodeTag> for categories.
+
+### Posts
+
+First, we take advantage of the [metadata object](https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadata-fields) to add some information in posts:
+
+<Code
+  code={snippets[4].snippet}
+  file="/app/blog/(posts)/hello-world/page.mdx"
+/>
+
+Let's add some content to verify that the markdown is properly converted to HTML:
+
+<Code
+  code={snippets[5].snippet}
+  file="/app/blog/(posts)/hello-world/page.mdx"
+/>
+
+At this point, all we have to do is write the function to retrieve all posts. We know that all posts are in the <CodeTag>/app/blog/</CodeTag> folder, so we need to read the names of all the folders in the <CodeTag>/app/blog</CodeTag>/ folder to get a list of all the post slugs. Thanks to this list, it is possible to import each metadata to get the information we need for each post: the title, publication date, and categories. Of course, it is possible to leverage the metadata to pass other information, such as author names, tags, etc. This is just a starting point.
+
+We then create a <CodeTag>posts.ts</CodeTag> file in <CodeTag>/app/lib/</CodeTag> (or wherever you prefer) with the following content:
+
+<Code code={snippets[6].snippet} file="/app/lib/posts.ts" />
+
+We now have a function that retrieves all of our blog posts so that we can conveniently pass them to a component. Create a new file in <CodeTag>/app/components/posts.tsx</CodeTag>:
+
+<Code code={snippets[7].snippet} file="/app/components/posts.tsx" />
+
+As you can see, the component uses <CodeTag>date-fns</CodeTag> to format the date, so you have to install the package with:
+
+<Code code={snippets[8].snippet} />
+
+Now that you have this component, you can use it on your pages. A good place might be in your site's <CodeTag>/blog/</CodeTag> page. So, let's add a <CodeTag>page.tsx</CodeTag> file in the <CodeTag>/app/blog/</CodeTag> folder with the following code:
+
+<Code code={snippets[9].snippet} file="/app/blog/page.tsx" />
+
+### Categories
+
+Categories are assigned to the metadata of each post. However, to make the code more stable and simple, the categories must be part of a predefined list that you must create. First, let's build this list. In <CodeTag>/app/lib/constants.ts</CodeTag> we create a constant by adding some categories:
+
+<Code code={snippets[10].snippet} file="/app/lib/constants.ts" />
+
+And we create the functions needed to manage categories in <CodeTag>/app/lib/categories.ts</CodeTag>:
+
+<Code code={snippets[11].snippet} file="/app/lib/categories.ts" />
+
+This file contains two functions: <CodeTag>getCategoryById</CodeTag> which allows you to find a category using its ID and <CodeTag>getCategoryURL</CodeTag> which returns the URL of a category, for example <CodeTag>/category/javascript</CodeTag>.
+
+We then need a function that can return a list of posts filtered by a category. To do this, we need to edit the file <CodeTag>/app/components/posts.ts</CodeTag> adding this new function:
+
+<Code code={snippets[12].snippet} file="/app/lib/posts.ts" />
+
+Finally, we edit our <CodeTag>/app/components/posts.ts</CodeTag> file to show categories under each post:
+
+<Code code={snippets[13].snippet} file="/app/components/posts.ts" />
+
+As mentioned, we need a way to display a category page using the URL <CodeTag>/category/slug</CodeTag>. For example <CodeTag>/category/javascript</CodeTag>. To do this, we can take advantage of Next.js's dynamic router by creating a <CodeTag>page.tsx</CodeTag> file in the <CodeTag>/app/category/[category]/</CodeTag> folder.
+
+As with the post archive, we can leverage the same component to display all the posts in the current category:
+
+<Code code={snippets[14].snippet} file="/app/category/[category]/page.tsx" />
+
+<Note title="Important info">
+  We make use of the <CodeTag>generateStaticParams</CodeTag> function in the
+  categories routes to allow them to be generated statically at build time. More
+  information can be found
+  [here](https://nextjs.org/docs/app/api-reference/functions/generate-static-params).
+</Note>
+
+## Adding syntax highlighting with Rehype Pretty Code
+
+The last step is entirely optional, as it adds syntax highlighting for blocks of code. Of course, not all blogs need this feature, so if you are not interested, skip this step.
+
+First, let's install the necessary packages:
+
+<Code code={snippets[15].snippet} />
+
+Now that Rehype is installed, we can edit the <CodeTag>next.config.mjs</CodeTag> file:
+
+<Code code={snippets[16].snippet} file="next.config.mjs" />
+
+In order to use Rehype, we need to create a new component, so in the <CodeTag>/app/components/</CodeTag> folder, add a <CodeTag>code.tsx</CodeTag> file with the following code:
+
+<Code code={snippets[17].snippet} file="/app/components/code.ts" />
+
+Through this new Code component, it will then be possible to pass a string and have a block of code with a syntax highlight. For example:
+
+<Code code={snippets[18].snippet} />
+
+## Conclusion
+
+That's it. As you can see, it is relatively easy to create a static blog with Next.js if you have some familiarity with React and modern JavaScript tools. On the other hand, if this is not your case and you want to learn Next.js, I consider the static blog a great first approach because it is not too overwhelming, but at the same time, it allows you to touch some of the main features of this framework.

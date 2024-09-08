@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  /* -webkit-font-smoothing: antialiased; */
+}
+
+pre {
+  -webkit-font-smoothing: subpixel-antialiased;
+  overflow-x: auto;
+}
+
+code[data-line-numbers] {
+  counter-reset: line;
+}
+
+code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+
+  /* Other styling */
+  display: inline-block;
+  width: 0.75rem;
+  margin-right: 2rem;
+  text-align: right;
+  color: hsla(0, 0%, 66%, 1);
+}
+
+code[data-line-numbers-max-digits="2"] > [data-line]::before {
+  width: 1.25rem;
+}
+
+code[data-line-numbers-max-digits="3"] > [data-line]::before {
+  width: 1.75rem;
+}
+
+code[data-line-numbers-max-digits="4"] > [data-line]::before {
+  width: 2.25rem;
+}
+
+pre button.rehype-pretty-copy {
+  margin-right: 0 !important;
+  margin-top: -2px !important;
+}
+
+.note p {
+  margin-bottom: 0;
+}
