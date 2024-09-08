@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "./components/nav/navigation";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Benito Lopez",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <main className="main container mx-auto px-12 my-12 max-w-3xl">
           {children}
         </main>
+        <Analytics />
       </body>
     </html>
   );
