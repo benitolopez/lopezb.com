@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/hoteldatepicker",
+      "destination": "https://hoteldatepicker.org",
+      "permanent": true
+    }
+  ]
+}
