@@ -3,6 +3,7 @@ import CodeTag from "@/app/components/tags/code";
 import { Code } from "@/app/components/tags/highlight";
 import Title from "@/app/components/tags/title";
 import Note from "@/app/components/tags/note";
+import Toc from "@/app/components/posts/toc";
 import snippets from "./snippets";
 
 export const metadata = {
@@ -12,9 +13,48 @@ export const metadata = {
   date: "2024-09-08T00:00:00Z",
 };
 
-<Title title={metadata.title} date={metadata.date} />
+<article className="relative">
 
-Although there are more immediate [solutions](https://wordpress.org/) for creating a blog, I have always been fascinated by static site generators, especially for this type of application: they are easy to maintain and generally perform well. Of course, the world is full of such tools, and I have no reason to prefer [Next.js](nextjs.org/) to [Hugo](https://gohugo.io/), [Astro](https://astro.build/), etc. And probably Next.js is slightly overkill for just a static blog.
+<Title title={metadata.title} date={metadata.date} id="introduction" />
+
+<Toc
+  title="Table of contents"
+  items={[
+    {
+      title: "Introduction",
+      id: "introduction",
+    },
+    {
+      title: "Setting up the Next.js project",
+      id: "setting-up-the-nextjs-project",
+    },
+    {
+      title: "Integrating MDX for markdown content",
+      id: "integrating-mdx-for-markdown-content",
+    },
+    {
+      title: "Setting up routing for articles and categories",
+      id: "setting-up-routing-for-articles-and-categories",
+      items: [
+        { title: "Posts", id: "posts" },
+        { title: "Categories", id: "categories" },
+      ],
+    },
+    {
+      title: "Adding syntax highlighting with Rehype Pretty Code",
+      id: "adding-syntax-highlighting-with-rehype-pretty-code",
+    },
+    { title: "Conclusion", id: "conclusion" },
+  ]}
+/>
+
+Although there are more immediate [solutions](https://wordpress.org/) for
+creating a blog, I have always been fascinated by static site generators,
+especially for this type of application: they are easy to maintain and
+generally perform well. Of course, the world is full of such tools, and I have
+no reason to prefer [Next.js](nextjs.org/) to [Hugo](https://gohugo.io/),
+[Astro](https://astro.build/), etc. And probably Next.js is slightly overkill
+for just a static blog.
 
 But then, why did I choose Next.js to create my site? Well, mainly because I consider the knowledge of Next.js a must-have skill for a web developer in 2024, and I wanted to work with the new App Router. Second, I needed React for features that I plan to add in the future. And, despite my reluctance to use frameworks as a first or only solution, I consider Next.js a nice and comfortable environment to work with React.
 
@@ -150,3 +190,5 @@ Through this new Code component, it will then be possible to pass a string and h
 That's it. As you can see, it is relatively easy to create a static blog with Next.js if you have some familiarity with React and modern JavaScript tools. On the other hand, if this is not your case and you want to learn Next.js, I consider the static blog a great first approach because it is not too overwhelming, but at the same time, it allows you to touch some of the main features of this framework.
 
 For access to the complete project, feel free to explore the [GitHub repository](https://github.com/benitolopez/example-nextjs-simple-static-blog).
+
+</article>
