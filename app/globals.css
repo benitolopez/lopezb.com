@@ -47,3 +47,7 @@ pre button.rehype-pretty-copy {
 .note p {
   margin-bottom: 0;
 }
+
+article a {
+  transition: color 0.2s ease;
+}
