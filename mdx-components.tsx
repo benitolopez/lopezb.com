@@ -1,5 +1,13 @@
 import type { MDXComponents } from "mdx/types";
 
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .trim();
+}
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: ({ children }) => (
@@ -7,16 +15,30 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </h1>
     ),
-    h2: ({ children }) => (
-      <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
-        {children}
-      </h2>
-    ),
-    h3: ({ children }) => (
-      <h3 className="leading-7 text-black mt-12 mb-4 font-bold text-lg">
-        {children}
-      </h3>
-    ),
+    h2: ({ children }) => {
+      const id = slugify(children);
+
+      return (
+        <h2
+          id={id}
+          className="leading-7 text-black mt-12 mb-5 font-bold text-xl"
+        >
+          {children}
+        </h2>
+      );
+    },
+    h3: ({ children }) => {
+      const id = slugify(children);
+
+      return (
+        <h3
+          id={id}
+          className="lleading-7 text-black mt-12 mb-4 font-bold text-lg"
+        >
+          {children}
+        </h3>
+      );
+    },
     h4: ({ children }) => (
       <h4 className="leading-7 text-black mt-12 mb-3 font-bold">{children}</h4>
     ),
