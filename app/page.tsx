@@ -15,27 +15,22 @@ export default function Home() {
           </a>{" "}
           with over 10 years of experience and a solid front-end and back-end
           development background. I’m passionate about solving problems and
-          constantly learning. Over the years, I’ve worked on various projects,
-          from contributing to{" "}
+          constantly learning.
+        </p>
+
+        <p className="leading-7 text-gray-800 mb-5">
+          As a WordPress specialist, I've spent the last decade building themes,
+          plugins, and custom solutions that power thousands of websites
+          worldwide. Throughout my WordPress journey, I achieved Elite Author
+          status on Envato's marketplace (Lollum themes) and now I'm part of the
+          team behind{" "}
           <a
             href="https://undsgn.com/uncode/"
             className="text-blue-600 hover:underline"
           >
-            popular products
-          </a>{" "}
-          to building a{" "}
-          <a
-            href="https://wphotelier.com/"
-            className="text-blue-600 hover:underline"
-          >
-            successful SaaS business
+            Uncode
           </a>
-          . I enjoy taking on challenges, developing custom features, and
-          staying updated with the latest technologies.
-        </p>
-        <p className="leading-7 text-gray-800 mb-5">
-          I also love math, and after a few years of wavering, I decided to go
-          back to studying and am now pursuing a BSc in Mathematics.
+          , one of the most popular WordPress themes on the market.
         </p>
 
         <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
@@ -43,16 +38,6 @@ export default function Home() {
         </h2>
 
         <ul className="leading-7 text-gray-800 mb-5">
-          <li className="mb-2">
-            <a
-              href="https://wphotelier.com/"
-              className="text-blue-600 hover:underline"
-            >
-              WP Hotelier
-            </a>{" "}
-            - A WordPress booking plugin for building hotel websites. It’s my
-            first SaaS and it’s growing, enough to pay my bills.
-          </li>
           <li className="mb-2">
             <a
               href="https://undsgn.com/uncode/"
@@ -63,6 +48,15 @@ export default function Home() {
             - Top seller WordPress theme. I mainly deal with the backend, React
             (building components for the Block Editor) and the development of
             advanced and custom features for WooCommerce.
+          </li>
+          <li className="mb-2">
+            <a
+              href="https://wphotelier.com/"
+              className="text-blue-600 hover:underline"
+            >
+              WP Hotelier
+            </a>{" "}
+            - A WordPress booking plugin for building hotel websites.
           </li>
           <li className="mb-2">
             <a
@@ -91,10 +85,17 @@ export default function Home() {
         </h2>
 
         <p className="leading-7 text-gray-800 mb-5">
-          Born in Switzerland, raised in Spain, and living in Italy. I’m a
-          father of two. I love music and play guitar, focusing on jazz,
-          experimental, noise, electronic, and ambient genres. Additionally, I
-          enjoy reading books.
+          Born in Switzerland, raised in Spain, and living in Italy, I'm a
+          father of two with diverse interests. Music plays a significant role
+          in my life — I enjoy playing guitar, particularly exploring jazz,
+          experimental, noise, electronic, and ambient genres. I also spend time
+          reading books and comics.
+        </p>
+
+        <p className="leading-7 text-gray-800 mb-5">
+          Mathematics is another big passion, and after taking a few years away
+          from formal education, I decided to return to academia and am now
+          pursuing a BSc in Mathematics.
         </p>
 
         <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
