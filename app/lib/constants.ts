@@ -21,6 +21,11 @@ export const MENU_LINKS = [
     href: "/",
   },
   {
+    id: "about",
+    name: "About",
+    href: "/about",
+  },
+  {
     id: "articles",
     name: "Articles",
     href: `/${BLOG_SLUG}`,
