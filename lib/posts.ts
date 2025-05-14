@@ -5,7 +5,7 @@
  */
 import { promises as fs } from "fs";
 import path from "path";
-import { BLOG_SLUG } from "@/app/lib/constants";
+import { BLOG_SLUG } from "@/lib/constants";
 
 export type Post = {
   slug: string;

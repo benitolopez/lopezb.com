@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-import Navigation from "./components/nav/navigation";
+import Navigation from "@/components/nav/navigation";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {

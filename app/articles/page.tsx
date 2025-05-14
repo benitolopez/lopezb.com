@@ -1,5 +1,5 @@
-import Posts from "@/app/components/posts/posts";
-import { getPosts } from "@/app/lib/posts";
+import Posts from "@/components/posts/posts";
+import { getPosts } from "@/lib/posts";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

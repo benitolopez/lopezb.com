@@ -1,5 +1,5 @@
-import { MENU_LINKS } from "@/app/lib/constants";
-import NavigationLink from "@/app/components/nav/navigation-link";
+import { MENU_LINKS } from "@/lib/constants";
+import NavigationLink from "@/components/nav/navigation-link";
 
 export default function Navigation() {
   return (

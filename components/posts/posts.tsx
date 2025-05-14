@@ -1,7 +1,7 @@
-import { type Post } from "@/app/lib/posts";
+import { type Post } from "@/lib/posts";
 import Link from "next/link";
 import { parseISO, format } from "date-fns";
-import { BLOG_SLUG } from "@/app/lib/constants";
+import { BLOG_SLUG } from "@/lib/constants";
 
 export default function Posts({ posts }: { posts: Post[] }) {
   return (
