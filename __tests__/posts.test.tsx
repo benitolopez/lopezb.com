@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 import { render, screen } from "@testing-library/react";
 
-import Posts from "../app/components/posts/posts";
+import Posts from "../components/posts/posts";
 
 const mockPosts = [
   { slug: "post-1", title: "Post 1", date: "2024-09-08T00:00:00Z" },
