@@ -114,5 +114,5 @@ export async function subscribeToNewsletter(
     };
   }
 
-  redirect("/newsletter/confirm");
+  redirect("/newsletter/verify");
 }
