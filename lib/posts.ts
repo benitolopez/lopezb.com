@@ -20,7 +20,10 @@ export type Post = {
  * @returns {Promise<Post[]>} A promise that resolves to an array of posts.
  */
 export async function getPosts(): Promise<Post[]> {
-  const blogDirPath = path.join(process.cwd(), `app/${BLOG_SLUG}/(posts)`);
+  const blogDirPath = path.join(
+    process.cwd(),
+    `app/(default-layout)/${BLOG_SLUG}/(posts)`
+  );
 
   // Retrieve slugs from post routes by filtering directories
   const slugs = (await fs.readdir(blogDirPath, { withFileTypes: true })).filter(
@@ -34,7 +37,7 @@ export async function getPosts(): Promise<Post[]> {
   const posts = await Promise.all(
     slugs.map(async ({ name }) => {
       const { metadata } = await import(
-        `@/app/${BLOG_SLUG}/(posts)/${name}/page.mdx`
+        `@/app/(default-layout)/${BLOG_SLUG}/(posts)/${name}/page.mdx`
       );
       return { slug: name, ...metadata };
     })

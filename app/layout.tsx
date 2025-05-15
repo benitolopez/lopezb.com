@@ -1,7 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import "./globals.css";
-import Navigation from "@/components/nav/navigation";
+import "@/app/globals.css";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
@@ -18,10 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navigation />
-        <main className="main container mx-auto px-12 my-12 max-w-3xl">
-          {children}
-        </main>
+        {children}
         <Analytics />
       </body>
     </html>
