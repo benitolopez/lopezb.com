@@ -14,7 +14,6 @@ export type NewsletterFormState =
       };
       response?: {
         message?: string;
-        success?: boolean;
       };
     }
   | undefined;
