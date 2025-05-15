@@ -1,3 +1,5 @@
+import NewsletterForm from "@/components/forms/newsletter";
+
 export default function Home() {
   return (
     <div className="page">
@@ -32,6 +34,8 @@ export default function Home() {
           </a>
           , one of the most popular WordPress themes on the market.
         </p>
+
+        <NewsletterForm />
 
         <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
           Connect
