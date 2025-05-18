@@ -29,7 +29,7 @@ export default function NewsletterForm() {
               name="email"
               id="email"
               required
-              className="block border w-full py-2 px-5 text-gray-800 placeholder:text-gray-800 rounded-md bg-gray-50 focus:outline-gray-400 outline-offset-0 h-[60px]"
+              className="block border w-full py-2 px-5 text-gray-800 placeholder:text-gray-800 rounded-md bg-gray-50 focus:outline-blue-500 outline-offset-0 h-[60px]"
               placeholder="Enter your email address"
               defaultValue={state?.values?.email || ""}
               aria-invalid={state?.errors?.email ? "true" : "false"}
