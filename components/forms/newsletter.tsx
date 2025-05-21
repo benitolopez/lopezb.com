@@ -29,7 +29,7 @@ export default function NewsletterForm() {
               name="email"
               id="email"
               required
-              className="block border w-full py-2 px-5 text-gray-800 placeholder:text-gray-800 rounded-md bg-gray-50 focus:outline-blue-500 outline-offset-0 h-[60px]"
+              className="block border w-full py-2 px-5 text-gray-800 placeholder:text-gray-800 rounded-md bg-gray-50 focus:outline-blue-500 outline-offset-0 sm:h-[60px]"
               placeholder="Enter your email address"
               defaultValue={state?.values?.email || ""}
               aria-invalid={state?.errors?.email ? "true" : "false"}
@@ -37,7 +37,7 @@ export default function NewsletterForm() {
             <button
               type="submit"
               disabled={pending}
-              className={`py-3 px-5 rounded-md hover:bg-black focus:outline-none text-left bg-blue-500 text-white top-[5px] right-[5px] absolute h-[50px] flex items-center justify-center ${
+              className={`mt-3 sm:mt-0 w-full sm:w-auto py-3 px-5 rounded-md hover:bg-black focus:outline-none text-left bg-blue-500 text-white top-[5px] right-[5px] sm:absolute h-[50px] flex items-center justify-center ${
                 pending ? "cursor-not-allowed hover:bg-blue-500" : ""
               }`}
             >
