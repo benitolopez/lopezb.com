@@ -30,4 +30,9 @@ export const MENU_LINKS = [
     name: "Articles",
     href: `/${BLOG_SLUG}`,
   },
+  {
+    id: "ask-me-anything",
+    name: "Ask Me Anything!",
+    href: "/ask-me-anything",
+  },
 ] as const;
