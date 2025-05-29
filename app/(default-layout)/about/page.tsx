@@ -14,11 +14,11 @@ export default function About() {
       </h1>
       <div className="content mt-8">
         <p className="leading-7 text-gray-800 mb-5">
-          I'm a software engineer with 10+ years of experience building web
-          applications. I work across the full stack to build web applications
-          and tools that solve real problems. While I specialize in WordPress
-          development, my work spans frontend, backend, and everything in
-          between.
+          I'm Benito Lopez, a software engineer with 10+ years of experience
+          building web applications. I work across the full stack to build web
+          applications and tools that solve real problems. While I specialize in
+          WordPress development, my work spans frontend, backend, and everything
+          in between.
         </p>
 
         <p className="leading-7 text-gray-800 mb-5">
