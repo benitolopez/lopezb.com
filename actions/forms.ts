@@ -105,6 +105,19 @@ export async function submitAMAQuestion(
   }
 
   try {
+    // If the user opted in to the newsletter, subscribe them
+    if (subscribe) {
+      try {
+        await handleNewsletterSubscription(email);
+      } catch (newsletterError) {
+        console.error(
+          "Newsletter subscription failed in AMA form:",
+          newsletterError
+        );
+        // Continue with email sending even if newsletter subscription fails
+      }
+    }
+
     // Send email using JMAP
     const session = await getJMAPSession();
     const apiUrl = session.apiUrl;
