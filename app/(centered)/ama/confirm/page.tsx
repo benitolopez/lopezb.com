@@ -26,8 +26,8 @@ export default function AMAConfirm() {
           Question received!
         </h1>
         <p className="leading-7 text-gray-800 mb-10">
-          Thank you for submitting your question to my Ask Me Anything series.
-          I've received your message and will respond as soon as possible.
+          Thank you for submitting your question. I've received your message and
+          will respond as soon as possible.
         </p>
 
         <BackToHome />
