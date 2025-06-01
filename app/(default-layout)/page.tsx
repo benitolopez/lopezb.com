@@ -1,4 +1,5 @@
 import NewsletterForm from "@/components/forms/newsletter";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -8,7 +9,11 @@ export default function Home() {
       </h1>
       <div className="content mt-8">
         <p className="leading-7 text-gray-800 mb-5">
-          Hey there 👋, I’m Benito. I’m a{" "}
+          Hey there 👋, I’m{" "}
+          <Link href="/about" className="text-blue-600 hover:underline">
+            Benito
+          </Link>
+          . I’m a{" "}
           <a
             href="https://github.com/benitolopez"
             className="text-blue-600 hover:underline"
