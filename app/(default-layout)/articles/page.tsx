@@ -3,7 +3,7 @@ import { getPosts } from "@/lib/posts";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Articles",
+  title: "Articles - Benito Lopez",
   description:
     "Sharing thoughts on software development, life, and the journey through the tech world.",
 };

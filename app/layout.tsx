@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 export const metadata: Metadata = {
   title: "Benito Lopez",
   description:
-    "Software engineer with deep experience in front-end and back-end development. Passionate about solving problems and continuous learning.",
+    "Full-stack developer with expertise in WordPress, web applications, and open source projects. Passionate about solving problems and continuous learning.",
 };
 
 export default function RootLayout({
