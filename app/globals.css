@@ -42,6 +42,13 @@ code[data-line-numbers-max-digits="4"] > [data-line]::before {
 pre button.rehype-pretty-copy {
   margin-right: 0 !important;
   margin-top: -2px !important;
+  display: none !important;
+}
+
+@media (min-width: 640px) {
+  pre button.rehype-pretty-copy {
+    display: flex !important;
+  }
 }
 
 .note p {
