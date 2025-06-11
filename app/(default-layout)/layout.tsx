@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from "@/components/nav/navigation";
 
-export default function RootLayout({
+export default function DefaultLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
