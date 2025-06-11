@@ -3,7 +3,7 @@ import BackToHome from "@/components/buttons/back-to-home";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Subscription confirmed - Benito Lopez",
+  title: "Subscription Confirmed - Benito Lopez",
   description:
     "You've successfully subscribed to the WordPress development newsletter.",
   robots: {

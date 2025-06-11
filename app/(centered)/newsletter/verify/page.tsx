@@ -3,7 +3,7 @@ import BackToHome from "@/components/buttons/back-to-home";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Confirm your email address - Benito Lopez",
+  title: "Confirm Your Email Address - Benito Lopez",
   description:
     "Confirm your email address to complete your newsletter subscription.",
   robots: {

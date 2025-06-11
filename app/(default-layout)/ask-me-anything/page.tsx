@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import AskMeAnythingForm from "@/components/forms/ask-me-anything";
 
 export const metadata: Metadata = {
-  title: "Ask me anything - Benito Lopez",
+  title: "Ask Me Anything - Benito Lopez",
   description:
     "Have a WordPress question? Ask me anything about WordPress development, coding problem, custom themes, plugins, and technical challenges.",
 };

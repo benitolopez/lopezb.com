@@ -3,7 +3,7 @@ import BackToHome from "@/components/buttons/back-to-home";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Question submitted - Benito Lopez",
+  title: "Question Submitted - Benito Lopez",
   description:
     "Your question has been successfully submitted and will be reviewed.",
   robots: {
