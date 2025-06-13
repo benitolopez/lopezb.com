@@ -29,7 +29,7 @@ export default function Home() {
           As a WordPress specialist, I've spent the last decade building themes,
           plugins, and custom solutions that power thousands of websites
           worldwide. Throughout my WordPress journey, I achieved Elite Author
-          status on Envato's marketplace (Lollum themes) and now I'm part of the
+          status on Envato's marketplace (Lollum Themes) and now I'm part of the
           team behind{" "}
           <a
             href="https://undsgn.com/uncode/"
