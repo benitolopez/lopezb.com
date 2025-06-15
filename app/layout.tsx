@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import "@/app/globals.css";
-import { Analytics } from "@vercel/analytics/react";
+import { FathomAnalytics } from "./fathom";
 
 export const metadata: Metadata = {
   title: "Benito Lopez",
@@ -17,8 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <FathomAnalytics />
         {children}
-        <Analytics />
       </body>
     </html>
   );
