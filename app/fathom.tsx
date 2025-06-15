@@ -9,7 +9,7 @@ function TrackPageView() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    load(process.env.FATHOM_ID || "", {
+    load(process.env.NEXT_PUBLIC_FATHOM_ID || "", {
       auto: false,
     });
   }, []);
