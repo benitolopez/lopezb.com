@@ -14,13 +14,12 @@ export default function NewsletterForm() {
     <>
       <div className="border mt-12 mb-5 p-6 md:p-12 rounded-md">
         <h2 className="leading-7 text-black mb-5 font-bold text-xl">
-          Stay updated on WordPress deep dives
+          Stay updated on new releases and important updates
         </h2>
         <p className="leading-7 text-gray-800 mb-5">
-          Join my newsletter for in-depth WordPress articles exploring advanced
-          development techniques, performance optimization, and under-the-hood
-          insights. I'll be sharing real-world solutions and technical deep
-          dives.
+          Join my newsletter for product updates, feature announcements, and
+          important information. No spam, just the essentials when there's
+          something worth sharing.
         </p>
         <form action={action}>
           <div className="relative">

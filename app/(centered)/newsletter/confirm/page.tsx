@@ -4,8 +4,7 @@ import Image from "next/image";
 
 export const metadata = {
   title: "Subscription Confirmed - Benito Lopez",
-  description:
-    "You've successfully subscribed to the WordPress development newsletter.",
+  description: "You've successfully subscribed to my newsletter.",
   robots: {
     index: false,
     follow: false,
@@ -26,10 +25,9 @@ export default function NewsletterConfirm() {
           You're all set!
         </h1>
         <p className="leading-7 text-gray-800 mb-10">
-          Thank you for confirming your subscription to my WordPress deep dives
-          newsletter. You'll now receive in-depth articles on advanced WordPress
-          development, performance optimization techniques, and technical
-          insights straight to your inbox.
+          Thank you for confirming your subscription to my newsletter. You'll
+          now receive important product updates, feature announcements, and key
+          information straight to your inbox.
         </p>
 
         <BackToHome />
