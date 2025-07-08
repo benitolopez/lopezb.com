@@ -6,7 +6,7 @@ import { FathomAnalytics } from "./fathom";
 export const metadata: Metadata = {
   title: "Benito Lopez",
   description:
-    "Full-stack developer with expertise in WordPress, web applications, and open source projects. Passionate about solving problems and continuous learning.",
+    "Full-stack software engineer building web applications, tools, and open source projects.",
 };
 
 export default function RootLayout({
