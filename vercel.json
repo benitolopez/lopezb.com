@@ -4,6 +4,11 @@
       "source": "/hoteldatepicker",
       "destination": "https://hoteldatepicker.org",
       "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
