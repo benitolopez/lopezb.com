@@ -1,6 +1,7 @@
 import Image from "next/image";
 import NewsletterForm from "@/components/forms/newsletter";
 import Title from "@/components/tags/title";
+import CodeTag from "@/components/tags/code";
 
 export const metadata = {
   title:
@@ -54,7 +55,7 @@ Additionally, and I know some purists will turn up their noses (a point I’ll r
 
 I've become much more demanding of myself. This new "power" has made me more responsible. And if before, due to time constraints or a bit of laziness, I would immediately dive into the code putting architecture and cleanliness in second place, today I don't compromise. More than in the initial prompt, efforts are dedicated to planning.
 
-I always start the task in _plan mode_, and I interact with Claude Code until I've found a plan that I consider state-of-the-art. Then I ask Claude Code to write the plan directly in the plans/ folder of my project. The instructions for creating the plan require a detailed description of the problem and the proposed solution. I've created a specific [command](https://docs.anthropic.com/en/docs/claude-code/slash-commands#custom-slash-commands) for this, and the result is a truly complete document in every aspect.
+I always start the task in _plan mode_, and I interact with Claude Code until I've found a plan that I consider state-of-the-art. Then I ask Claude Code to write the plan directly in the <CodeTag>plans/</CodeTag> folder of my project. The instructions for creating the plan require a detailed description of the problem and the proposed solution. I've created a specific [command](https://docs.anthropic.com/en/docs/claude-code/slash-commands#custom-slash-commands) for this, and the result is a truly complete document in every aspect.
 
 This serves two functions: the first is to keep Claude Code always aligned with the plan. I've noticed that it tends to lose context in longer tasks. If instead you invite it to follow this file at every critical step, updating it from time to time with completed tasks, the results are better. Moreover, having the spec written in a file allows for a precise reference in future conversations, especially if you need to resume a very long task.
 
