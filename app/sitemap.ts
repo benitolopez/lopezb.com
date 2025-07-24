@@ -9,13 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: "https://lopezb.com/blog",
+      url: "https://lopezb.com/articles",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,
     },
     {
-      url: "https://lopezb.com/blog/how-to-create-a-static-blog-with-nextjs-and-markdown",
+      url: "https://lopezb.com/articles/how-to-create-a-static-blog-with-nextjs-and-markdown",
       lastModified: new Date("2024-09-08"),
       changeFrequency: "weekly",
       priority: 0.8,
