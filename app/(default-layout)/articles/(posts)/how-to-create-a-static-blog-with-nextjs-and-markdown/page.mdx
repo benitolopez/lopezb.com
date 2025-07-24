@@ -17,7 +17,11 @@ export const metadata = {
 
 <article className="relative">
 
-<Title title={metadata.title} date={metadata.date} id="introduction" />
+<Title
+  title={metadata.title.replace(" - Benito Lopez", "")}
+  date={metadata.date}
+  id="introduction"
+/>
 
 <Toc
   title="Table of contents"
