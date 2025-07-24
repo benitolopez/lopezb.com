@@ -20,5 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: "https://lopezb.com/articles/claude-code-my-most-trusted-coworker-and-my-worst-enemy",
+      lastModified: new Date("2025-07-24"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
 }
