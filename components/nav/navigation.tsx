@@ -10,7 +10,7 @@ export default function Navigation() {
           href="/"
           className="order-2 border-b block pt-2 pb-4 mb-4 sm:p-0 sm:m-0 sm:border-0"
         >
-          <span className="text-sm font-medium text-black">Benito Lopez</span>
+          <span className="text-sm italic text-black">Benito Lopez</span>
         </Link>
 
         <ul className="flex order-1 flex-wrap">

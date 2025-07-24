@@ -13,7 +13,7 @@ export default function Title({
     <header className="mb-8">
       <h1
         id={id}
-        className="title leading-7 text-2xl mt-12 mb-3 font-bold text-black"
+        className="title leading-15 text-3xl mt-12 mb-3 font-bold text-black"
       >
         {title}
       </h1>

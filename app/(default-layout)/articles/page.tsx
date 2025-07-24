@@ -13,7 +13,7 @@ export default async function Page() {
 
   return (
     <div className="page">
-      <h1 className="title leading-7 text-2xl font-bold text-black">
+      <h1 className="title leading-15 text-3xl font-bold text-black">
         Articles
       </h1>
       <div className="content mt-8">
