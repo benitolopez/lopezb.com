@@ -90,16 +90,6 @@ export default function Home() {
             - A pure JavaScript date range picker for hotels or booking
             websites. It was tricky but fun to develop!
           </li>
-          <li className="mb-2">
-            <a
-              href="https://ssnipp.com/"
-              className="text-blue-600 hover:underline"
-            >
-              ssnipp
-            </a>{" "}
-            - Minimalist and private code snippet sharer written in Go. I use it
-            to share snippets with my clients.
-          </li>
         </ul>
 
         <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
