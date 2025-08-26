@@ -26,5 +26,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: "https://lopezb.com/articles/on-writing",
+      lastModified: new Date("2025-08-27"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
 }
