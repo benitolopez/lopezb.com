@@ -32,5 +32,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: "https://lopezb.com/articles/my-complicated-relationship-with-side-projects",
+      lastModified: new Date("2025-12-02"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
 }
