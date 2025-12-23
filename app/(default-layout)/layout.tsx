@@ -9,7 +9,7 @@ export default function DefaultLayout({
   return (
     <>
       <Navigation />
-      <main className="main container mx-auto px-12 my-12 max-w-3xl">
+      <main className="main container mx-auto px-6 my-6 md:px-8 md:my-8 lg:px-12 lg:my-12 max-w-3xl">
         {children}
       </main>
     </>
