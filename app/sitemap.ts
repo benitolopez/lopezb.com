@@ -15,8 +15,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
+      url: "https://lopezb.com/articles/pds-a-go-server-and-an-honest-look-at-llm-assisted-development",
+      lastModified: new Date("2026-01-02"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: "https://lopezb.com/articles/how-to-create-a-static-blog-with-nextjs-and-markdown",
-      lastModified: new Date("2024-09-08"),
+      lastModified: new Date("2025-09-08"),
       changeFrequency: "weekly",
       priority: 0.8,
     },
