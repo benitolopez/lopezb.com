@@ -42,6 +42,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h4: ({ children }) => (
       <h4 className="leading-7 text-black mt-12 mb-3 font-bold">{children}</h4>
     ),
+    hr: () => <hr className="mb-5" />,
     p: ({ children }) => (
       <p className="leading-7 text-gray-800 mb-5">{children}</p>
     ),
