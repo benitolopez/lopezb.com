@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const metadata = {
   title:
-    "PDS: A Go Server and an Honest Look at LLM-Assisted Development - Benito Lopez",
+    "Limite: A Go Server and an Honest Look at LLM-Assisted Development - Benito Lopez",
   description:
     "Building a probabilistic data structures server in Go. Some thoughts on LLM-assisted development.",
   date: "2026-01-02T00:00:00Z",
@@ -18,7 +18,13 @@ export const metadata = {
   id="introduction"
 />
 
-In these hours I've published PDS, a standalone server written in Go that offers probabilistic data structures. You can find it here. In-memory, of course, which accepts commands via TCP through Redis's RESP protocol and offers a very simple API. Using RESP turned out to be a very convenient choice, since I avoided having to create a dedicated CLI and automatically made this project compatible with every Redis client.
+### Update (2026-01-03)
+
+_This project was originally called **PDS**. It has since been renamed to **Limite** to better reflect its purpose as a bounded-memory infrastructure system. All concepts and code remain the same._
+
+---
+
+In these hours I've published <del>PDS</del> [Limite](https://github.com/benitolopez/limite), a standalone server written in Go that offers probabilistic data structures. You can find it here. In-memory, of course, which accepts commands via TCP through Redis's RESP protocol and offers a very simple API. Using RESP turned out to be a very convenient choice, since I avoided having to create a dedicated CLI and automatically made this project compatible with every Redis client.
 
 The benchmarks are extremely positive, especially when compared to such a performant product like Redis.
 
@@ -29,7 +35,7 @@ The benchmarks are extremely positive, especially when compared to such a perfor
   width="1512"
   height="542"
   className="mb-5 mx-auto"
-  alt="PDS vs Redis benchmarks (Key-value commands)"
+  alt="Limite vs Redis benchmarks (Key-value commands)"
 />
 
 **HyperLogLog**
@@ -39,7 +45,7 @@ The benchmarks are extremely positive, especially when compared to such a perfor
   width="1512"
   height="386"
   className="mb-5 mx-auto"
-  alt="PDS vs Redis benchmarks (HyperLogLog commands)"
+  alt="Limite vs Redis benchmarks (HyperLogLog commands)"
 />
 
 **Bloom filter**
@@ -49,7 +55,7 @@ The benchmarks are extremely positive, especially when compared to such a perfor
   width="1512"
   height="448"
   className="mb-5 mx-auto"
-  alt="PDS vs Redis benchmarks (Bloom filter commands)"
+  alt="Limite vs Redis benchmarks (Bloom filter commands)"
 />
 
 **Count-Min Sketch**
@@ -59,7 +65,7 @@ The benchmarks are extremely positive, especially when compared to such a perfor
   width="1512"
   height="278"
   className="mb-5 mx-auto"
-  alt="PDS vs Redis benchmarks (Count-Min Sketch commands)"
+  alt="Limite vs Redis benchmarks (Count-Min Sketch commands)"
 />
 
 **Top-K**
@@ -69,7 +75,7 @@ The benchmarks are extremely positive, especially when compared to such a perfor
   width="1512"
   height="440"
   className="mb-5 mx-auto"
-  alt="PDS vs Redis benchmarks (Top-K commands)"
+  alt="Limite vs Redis benchmarks (Top-K commands)"
 />
 
 _(Benchmarks using redis-benchmark on a VM, Ubuntu Server 24.04.3 LTS, 16GB RAM)_
@@ -78,7 +84,7 @@ The reason I decided to work on this project is that I was looking for something
 
 But this was also the right opportunity to put LLMs to the test for something more advanced than the usual frontend/backend stuff. And this is what I mainly want to talk about in this post.
 
-First, let's clarify what I developed and what the LLMs developed. The server, the TCP part, and the first data structure HyperLogLog were almost entirely developed by me. I can say the same about the Bloom filter implementation, although there was heavy LLM intervention there. While the entire persistence layer, the pds-check tool, and the last data structures (Count-Min Sketch and Top-K) were entirely made by LLMs.
+First, let's clarify what I developed and what the LLMs developed. The server, the TCP part, and the first data structure HyperLogLog were almost entirely developed by me. I can say the same about the Bloom filter implementation, although there was heavy LLM intervention there. While the entire persistence layer, the limite-check tool, and the last data structures (Count-Min Sketch and Top-K) were entirely made by LLMs.
 
 But let's go in order. First of all, when I say something was "entirely developed by me," I don't mean I didn't use any LLM. I mean the architecture was decided by me and I wrote every line myself. But I still made extensive use of LLMs through their web interfaces, both for the code part (mainly Gemini) and for research (ChatGPT). When I use LLMs this way, they become a sort of super-expert colleague I can bounce ideas off of. I ask for opinions on code and propose ideas and strategies (including architecture). Getting back valuable feedback that improves the final result. The research and study part is also on another level thanks to LLMs. Because it allows me to have a roadmap of topics to dive deeper into.
 
@@ -94,7 +100,7 @@ So, after completing the first part related to the actual server, I moved on to 
 
 Needless to say, this part was very gratifying and represented the peak of my interest in this project.
 
-Then came the integration of the algorithm in Go. At this point I had very clear ideas: I would use Ertl for the cardinality estimation algorithm and 6-bit registers like Redis. Using 6-bit registers is a very elegant solution that forced me to do (and therefore learn) bit masking and to have a more precise understanding of memory and its optimizations. However, it turned out to be a wrong choice for Go, because I ended up with poor performance, especially in the MERGE command. Here Gemini's suggestion to switch to 8-bit registers was crucial, letting me recover over 35% of performance compared to Redis (more info [here](https://github.com/benitolopez/pds/blob/main/internal/pds/hyperloglog/hll.go#L128)).
+Then came the integration of the algorithm in Go. At this point I had very clear ideas: I would use Ertl for the cardinality estimation algorithm and 6-bit registers like Redis. Using 6-bit registers is a very elegant solution that forced me to do (and therefore learn) bit masking and to have a more precise understanding of memory and its optimizations. However, it turned out to be a wrong choice for Go, because I ended up with poor performance, especially in the MERGE command. Here Gemini's suggestion to switch to 8-bit registers was crucial, letting me recover over 35% of performance compared to Redis (more info [here](https://github.com/benitolopez/limite/blob/main/internal/limite/hyperloglog/hll.go#L128)).
 
 Caught up in the enthusiasm, I decided to tackle a very important chapter before moving on to the new data structure: persistence.
 
@@ -114,7 +120,7 @@ The entire part where I used the LLM + Human in the loop combo, that is, where I
 
 Whereas, when I switched to mere vibe coding (even if done well), I certainly reduced times by 5x, but this left me with a terrible "impostor" feeling. On the other hand, it allowed me to complete the project and release it, because I had already decided to let it die on my computer. So there was this positive aspect.
 
-So I can understand the interest of big companies in LLMs to cut costs and reduce production times. An example of code produced entirely by LLMs you can see [here](https://github.com/benitolopez/pds/tree/main/internal/pds) (packages cms and topk). I'll leave the judgment on the code quality of those two data structures to you.
+So I can understand the interest of big companies in LLMs to cut costs and reduce production times. An example of code produced entirely by LLMs you can see [here](https://github.com/benitolopez/limite/tree/main/internal/limite) (packages cms and topk). I'll leave the judgment on the code quality of those two data structures to you.
 
 Final note. One area where LLMs excel is creating tests and the ability to perfectly understand code and generate top-notch comments. And indeed all tests were created by Gemini/Claude Code and the comments by Claude Code.
 
