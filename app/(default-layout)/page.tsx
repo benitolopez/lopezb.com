@@ -62,14 +62,13 @@ export default function Home() {
         <ul className="leading-7 text-gray-800 mb-5">
           <li className="mb-2">
             <a
-              href="https://undsgn.com/uncode/"
+              href="https://github.com/benitolopez/limite"
               className="text-blue-600 hover:underline"
             >
-              Uncode
+              Limite
             </a>{" "}
-            - Top seller WordPress theme. I mainly deal with the backend, React
-            (building components for the Block Editor) and the development of
-            advanced and custom features for WooCommerce.
+            - A probabilistic data structures server written in Go. HyperLogLog,
+            Bloom filters, Count-Min Sketch, and Top-K speaking Redis protocol.
           </li>
           <li className="mb-2">
             <a
