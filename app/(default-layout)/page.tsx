@@ -20,9 +20,8 @@ export default function Home() {
           >
             software engineer
           </a>{" "}
-          with over 10 years of experience and a solid front-end and back-end
-          development background. I’m passionate about solving problems and
-          constantly learning.
+          with a solid front-end and back-end development background. I’m
+          passionate about solving problems and constantly learning.
         </p>
 
         <p className="leading-7 text-gray-800 mb-5">
