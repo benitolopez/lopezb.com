@@ -8,7 +8,7 @@ export default function Home() {
         Benito Lopez
       </h1>
       <div className="content mt-8">
-        <p className="leading-7 text-gray-800 mb-5">
+        <p className="leading-7 text-gray-900 mb-5">
           Hey there 👋, I’m{" "}
           <Link href="/about" className="text-blue-600 hover:underline">
             Benito
@@ -24,7 +24,7 @@ export default function Home() {
           passionate about solving problems and constantly learning.
         </p>
 
-        <p className="leading-7 text-gray-800 mb-5">
+        <p className="leading-7 text-gray-900 mb-5">
           I work across the full stack to build web applications and tools that
           solve real problems. While I have deep expertise in various
           technologies, my work spans frontend, backend, and everything in
@@ -36,7 +36,7 @@ export default function Home() {
           WordPress
         </h2>
 
-        <p className="leading-7 text-gray-800 mb-5">
+        <p className="leading-7 text-gray-900 mb-5">
           Over the past decade, I've built a significant presence in the
           WordPress ecosystem. I've created themes, plugins, and custom
           solutions that power thousands of websites worldwide. Throughout my
@@ -58,7 +58,7 @@ export default function Home() {
           Projects and Selected Works
         </h2>
 
-        <ul className="leading-7 text-gray-800 mb-5">
+        <ul className="leading-7 text-gray-900 mb-5">
           <li className="mb-2">
             <a
               href="https://github.com/benitolopez/limite"
@@ -94,7 +94,7 @@ export default function Home() {
           Personal
         </h2>
 
-        <p className="leading-7 text-gray-800 mb-5">
+        <p className="leading-7 text-gray-900 mb-5">
           Born in Switzerland, raised in Spain, and living in Italy, I'm a
           father of two with diverse interests. Music plays a significant role
           in my life — I enjoy playing guitar, particularly exploring jazz,
@@ -102,7 +102,7 @@ export default function Home() {
           reading books and comics.
         </p>
 
-        <p className="leading-7 text-gray-800 mb-5">
+        <p className="leading-7 text-gray-900 mb-5">
           Mathematics is another big passion, and after taking a few years away
           from formal education, I decided to return to academia and am now
           pursuing a BSc in Mathematics.
@@ -112,7 +112,7 @@ export default function Home() {
           Connect
         </h2>
 
-        <p className="leading-7 text-gray-800 mb-5">
+        <p className="leading-7 text-gray-900 mb-5">
           Reach me at{" "}
           <a
             href="https://twitter.com/LopezBenito"

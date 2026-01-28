@@ -44,15 +44,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     hr: () => <hr className="mb-5" />,
     p: ({ children }) => (
-      <p className="leading-7 text-gray-800 mb-5">{children}</p>
+      <p className="leading-7 text-gray-900 mb-5">{children}</p>
     ),
     ul: ({ children }) => (
-      <ul className="leading-7 text-gray-800 mb-5 pl-3 ml-3 list-disc marker:text-gray-300">
+      <ul className="leading-7 text-gray-900 mb-5 pl-3 ml-3 list-disc marker:text-gray-300">
         {children}
       </ul>
     ),
     ol: ({ children }) => (
-      <ol className="leading-7 text-gray-800 mb-5 pl-4 list-decimal marker:text-gray-400">
+      <ol className="leading-7 text-gray-900 mb-5 pl-4 list-decimal marker:text-gray-400">
         {children}
       </ol>
     ),

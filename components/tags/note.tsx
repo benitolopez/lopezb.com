@@ -8,7 +8,7 @@ export default function Note({
   title: string;
 }) {
   return (
-    <div className="note rounded-md leading-7 text-gray-800 mb-5 border p-5 text-sm">
+    <div className="note rounded-md leading-7 text-gray-900 mb-5 border p-5 text-sm">
       {title && <strong className="font-bold text-gray-950">{title}:</strong>}
       <div className="m-0">{children}</div>
     </div>

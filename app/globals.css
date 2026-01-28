@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  /* -webkit-font-smoothing: antialiased; */
+  -webkit-font-smoothing: antialiased;
   font-size: 18px;
   font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
