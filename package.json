@@ -16,7 +16,6 @@
     "@next/mdx": "^15.3.2",
     "@rehype-pretty/transformers": "^0.13.2",
     "date-fns": "^3.6.0",
-    "fathom-client": "^3.7.2",
     "next": "^15.3.8",
     "react": "^19.1.2",
     "react-dom": "^19.1.2",
