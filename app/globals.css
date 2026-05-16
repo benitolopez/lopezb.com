@@ -8,7 +8,6 @@ html {
 }
 
 pre {
-  -webkit-font-smoothing: subpixel-antialiased;
   overflow-x: auto;
 }
 
