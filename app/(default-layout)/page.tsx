@@ -9,27 +9,27 @@ export default function Home() {
       </h1>
       <div className="content mt-8">
         <p className="leading-7 text-gray-900 mb-5">
-          Hey there 👋, I’m{" "}
-          <Link href="/about" className="text-blue-600 hover:underline">
-            Benito
-          </Link>
-          . I’m a{" "}
+          Hey there 👋. I’m a{" "}
           <a
             href="https://github.com/benitolopez"
             className="text-blue-600 hover:underline"
           >
             software engineer
           </a>{" "}
-          with a solid front-end and back-end development background. I’m
-          passionate about solving problems and constantly learning.
+          who enjoys building products and tools for the web.
         </p>
 
         <p className="leading-7 text-gray-900 mb-5">
-          I work across the full stack to build web applications and tools that
-          solve real problems. While I have deep expertise in various
-          technologies, my work spans frontend, backend, and everything in
-          between. I've been working remotely for 10+ years, which has taught me
-          to be self-directed and communicate clearly.
+          I work across the full stack to build web applications, tools, and
+          long-term commercial products used by thousands of people worldwide.
+          Over the years, this has meant working on backend systems, APIs,
+          frontend interfaces, product features, and the maintenance work needed
+          to keep software useful over time.
+        </p>
+
+        <p className="leading-7 text-gray-900 mb-5">
+          I’ve been working remotely for 10+ years, which has taught me to be
+          self-directed and communicate clearly.
         </p>
 
         <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
@@ -37,25 +37,41 @@ export default function Home() {
         </h2>
 
         <p className="leading-7 text-gray-900 mb-5">
-          Over the past decade, I've built a significant presence in the
-          WordPress ecosystem. I've created themes, plugins, and custom
-          solutions that power thousands of websites worldwide. Throughout my
-          WordPress journey, I achieved Elite Author status on Envato's
-          marketplace (Lollum Themes) and now I'm part of the team behind{" "}
+          Over the past decade, I’ve built a significant presence in the
+          WordPress ecosystem. I’ve created themes, plugins, and custom
+          solutions that power thousands of websites worldwide.
+        </p>
+
+        <p className="leading-7 text-gray-900 mb-5">
+          Throughout my WordPress journey, I achieved Elite Author status on
+          Envato’s marketplace with Lollum Themes, and I’m currently part of the
+          team behind{" "}
           <a
             href="https://undsgn.com/uncode/"
             className="text-blue-600 hover:underline"
           >
             Uncode
           </a>
-          , one of the most popular WordPress themes on the market. I mainly
-          deal with the backend, React (building components for the Block
-          Editor) and the development of advanced and custom features for
-          WooCommerce.
+          , one of the most popular WordPress themes on the market. My work
+          mainly focuses on backend development, React components for the Block
+          Editor, and advanced WooCommerce features.
+        </p>
+
+        <p className="leading-7 text-gray-900 mb-5">
+          Alongside team projects, I also build and maintain independent
+          WordPress products, including{" "}
+          <a
+            href="https://wphotelier.com/"
+            className="text-blue-600 hover:underline"
+          >
+            WP Hotelier
+          </a>
+          , a hotel booking plugin focused on helping small hotels and B&Bs
+          manage bookings directly through WordPress.
         </p>
 
         <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
-          Projects and Selected Works
+          Projects
         </h2>
 
         <ul className="leading-7 text-gray-900 mb-5">
@@ -66,17 +82,9 @@ export default function Home() {
             >
               Limite
             </a>{" "}
-            - A probabilistic data structures server written in Go. HyperLogLog,
-            Bloom filters, Count-Min Sketch, and Top-K speaking Redis protocol.
-          </li>
-          <li className="mb-2">
-            <a
-              href="https://wphotelier.com/"
-              className="text-blue-600 hover:underline"
-            >
-              WP Hotelier
-            </a>{" "}
-            - A WordPress booking plugin for building hotel websites.
+            - A probabilistic data structures server written in Go. Supports
+            HyperLogLog, Bloom filters, Count-Min Sketch, and Top-K while
+            speaking the Redis protocol.
           </li>
           <li className="mb-2">
             <a
@@ -88,6 +96,16 @@ export default function Home() {
             - A pure JavaScript date range picker for hotels or booking
             websites. It was tricky but fun to develop!
           </li>
+          <li className="mb-2">
+            <a
+              href="https://ssnipp.com/"
+              className="text-blue-600 hover:underline"
+            >
+              ssnipp
+            </a>{" "}
+            - A minimal private code-sharing tool I built as a lightweight
+            alternative to Pastebin for quickly sharing snippets with clients.
+          </li>
         </ul>
 
         <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
@@ -96,10 +114,10 @@ export default function Home() {
 
         <p className="leading-7 text-gray-900 mb-5">
           Born in Switzerland, raised in Spain, and living in Italy, I'm a
-          father of two with diverse interests. Music plays a significant role
-          in my life — I enjoy playing guitar, particularly exploring jazz,
-          experimental, noise, electronic, and ambient genres. I also spend time
-          reading books and comics.
+          father of two with diverse interests. Music is a big part of my life —
+          I enjoy playing guitar, particularly exploring jazz, experimental,
+          noise, electronic, and ambient genres. I also spend time reading books
+          and comics.
         </p>
 
         <p className="leading-7 text-gray-900 mb-5">
