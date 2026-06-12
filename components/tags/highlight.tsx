@@ -9,9 +9,9 @@ import { transformerCopyButton } from "@rehype-pretty/transformers";
 export async function Code({ code, file }: { code: string; file: string }) {
   const highlightedCode = await highlightCode(code);
   return (
-    <div className="text-[13px] border my-8 pb-5 rounded-md">
+    <div className="text-[13px] border my-8 pb-5 rounded-md bg-white">
       {file && (
-        <p className="text-[13px] text-gray-500 border-b py-2 px-5 bg-gray-50">
+        <p className="text-[13px] text-gray-800 border-b py-2 px-5 bg-gray-50">
           File: {file}
         </p>
       )}

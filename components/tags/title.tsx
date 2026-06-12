@@ -17,7 +17,7 @@ export default function Title({
       >
         {title}
       </h1>
-      <span className="date text-gray-500">
+      <span className="date text-gray-800">
         {format(parseISO(date), "MMMM d, yyyy")}
       </span>
     </header>

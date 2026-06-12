@@ -2,9 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --color-orange-700: #fff;
+}
+
 html {
   font-size: 17px;
-  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #fdf8ee;
 }
 
 pre {

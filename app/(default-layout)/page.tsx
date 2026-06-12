@@ -12,7 +12,7 @@ export default function Home() {
           Hey there 👋. I’m a{" "}
           <a
             href="https://github.com/benitolopez"
-            className="text-blue-600 hover:underline"
+            className="text-red-700 hover:underline"
           >
             software engineer
           </a>{" "}
@@ -48,7 +48,7 @@ export default function Home() {
           team behind{" "}
           <a
             href="https://undsgn.com/uncode/"
-            className="text-blue-600 hover:underline"
+            className="text-red-700 hover:underline"
           >
             Uncode
           </a>
@@ -62,7 +62,7 @@ export default function Home() {
           WordPress products, including{" "}
           <a
             href="https://wphotelier.com/"
-            className="text-blue-600 hover:underline"
+            className="text-red-700 hover:underline"
           >
             WP Hotelier
           </a>
@@ -78,7 +78,7 @@ export default function Home() {
           <li className="mb-2">
             <a
               href="https://github.com/benitolopez/limite"
-              className="text-blue-600 hover:underline"
+              className="text-red-700 hover:underline"
             >
               Limite
             </a>{" "}
@@ -89,7 +89,7 @@ export default function Home() {
           <li className="mb-2">
             <a
               href="https://hoteldatepicker.org/"
-              className="text-blue-600 hover:underline"
+              className="text-red-700 hover:underline"
             >
               Hotel Datepicker
             </a>{" "}
@@ -99,7 +99,7 @@ export default function Home() {
           <li className="mb-2">
             <a
               href="https://ssnipp.com/"
-              className="text-blue-600 hover:underline"
+              className="text-red-700 hover:underline"
             >
               ssnipp
             </a>{" "}
@@ -134,21 +134,21 @@ export default function Home() {
           Reach me at{" "}
           <a
             href="https://twitter.com/LopezBenito"
-            className="text-blue-600 hover:underline"
+            className="text-red-700 hover:underline"
           >
             @LopezBenito
           </a>
           , view my code on{" "}
           <a
             href="https://github.com/benitolopez"
-            className="text-blue-600 hover:underline"
+            className="text-red-700 hover:underline"
           >
             GitHub
           </a>
           , or write me at{" "}
           <a
             href="mailto:hello@lopezb.com"
-            className="text-blue-600 hover:underline"
+            className="text-red-700 hover:underline"
           >
             hello@lopezb.com
           </a>

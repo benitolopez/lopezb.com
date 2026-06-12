@@ -29,7 +29,7 @@ export default function Toc({ title, items }: TocProps) {
     <>
       <div className="mb-8 border-t border-b py-6">
         <div className="text-lg font-bold text-black">Table of contents</div>
-        <div className="text-gray-500 mt-3">{renderItems(items)}</div>
+        <div className="text-gray-800 mt-3">{renderItems(items)}</div>
       </div>
     </>
   );
