@@ -61,7 +61,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <pre className="text-[13px] border my-8 p-5 rounded-md">{children}</pre>
     ),
     a: ({ children, ...props }) => (
-      <a className="text-red-700 hover:underline" {...props}>
+      <a className="text-gray-900 underline" {...props}>
         {children}
       </a>
     ),

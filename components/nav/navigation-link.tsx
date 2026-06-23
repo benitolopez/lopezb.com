@@ -21,7 +21,7 @@ export default function NavigationLink(props: NavigationLinkProps) {
       key={props.id}
       href={props.href}
       className={`mr-5 flex items-center space-x-3 rounded-md py-1.5 ${
-        isActive ? "text-red-700" : "text-gray-700 hover:text-black"
+        isActive ? "text-gray-700 underline" : "text-gray-700 hover:text-black"
       }`}
     >
       <span>{props.name}</span>

@@ -12,7 +12,7 @@ export default function Home() {
           Hey there 👋. I’m a{" "}
           <a
             href="https://github.com/benitolopez"
-            className="text-red-700 hover:underline"
+            className="text-gray-900 underline"
           >
             software engineer
           </a>{" "}
@@ -48,7 +48,7 @@ export default function Home() {
           team behind{" "}
           <a
             href="https://undsgn.com/uncode/"
-            className="text-red-700 hover:underline"
+            className="text-gray-900 underline"
           >
             Uncode
           </a>
@@ -60,10 +60,7 @@ export default function Home() {
         <p className="leading-7 text-gray-900 mb-5">
           Alongside team projects, I also build and maintain independent
           WordPress products, including{" "}
-          <a
-            href="https://wphotelier.com/"
-            className="text-red-700 hover:underline"
-          >
+          <a href="https://wphotelier.com/" className="text-gray-900 underline">
             WP Hotelier
           </a>
           , a hotel booking plugin focused on helping small hotels and B&Bs
@@ -78,7 +75,7 @@ export default function Home() {
           <li className="mb-2">
             <a
               href="https://github.com/benitolopez/limite"
-              className="text-red-700 hover:underline"
+              className="text-gray-900 underline"
             >
               Limite
             </a>{" "}
@@ -89,7 +86,7 @@ export default function Home() {
           <li className="mb-2">
             <a
               href="https://hoteldatepicker.org/"
-              className="text-red-700 hover:underline"
+              className="text-gray-900 underline"
             >
               Hotel Datepicker
             </a>{" "}
@@ -97,10 +94,7 @@ export default function Home() {
             websites. It was tricky but fun to develop!
           </li>
           <li className="mb-2">
-            <a
-              href="https://ssnipp.com/"
-              className="text-red-700 hover:underline"
-            >
+            <a href="https://ssnipp.com/" className="text-gray-900 underline">
               ssnipp
             </a>{" "}
             - A minimal private code-sharing tool I built as a lightweight
@@ -134,22 +128,19 @@ export default function Home() {
           Reach me at{" "}
           <a
             href="https://twitter.com/LopezBenito"
-            className="text-red-700 hover:underline"
+            className="text-gray-900 underline"
           >
             @LopezBenito
           </a>
           , view my code on{" "}
           <a
             href="https://github.com/benitolopez"
-            className="text-red-700 hover:underline"
+            className="text-gray-900 underline"
           >
             GitHub
           </a>
           , or write me at{" "}
-          <a
-            href="mailto:hello@lopezb.com"
-            className="text-red-700 hover:underline"
-          >
+          <a href="mailto:hello@lopezb.com" className="text-gray-900 underline">
             hello@lopezb.com
           </a>
           .
