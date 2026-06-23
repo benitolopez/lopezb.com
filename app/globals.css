@@ -2,14 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@theme {
-  --color-orange-700: #fff;
-}
-
 html {
   font-size: 17px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #fdf8ee;
+  font-family:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: #faf8f1;
 }
 
 pre {
