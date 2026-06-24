@@ -16,7 +16,7 @@ export default function NewsletterForm() {
         <h2 className="leading-7 text-black mb-5 font-bold text-xl">
           Stay updated on new releases and important updates
         </h2>
-        <p className="leading-7 text-gray-900 mb-5">
+        <p className="leading-7 text-gray-950 mb-5">
           Join my newsletter for product updates, feature announcements, and
           important information. No spam, just the essentials when there's
           something worth sharing.
@@ -28,7 +28,7 @@ export default function NewsletterForm() {
               name="email"
               id="email"
               required
-              className="block border w-full py-2 px-5 text-gray-900 placeholder:text-gray-900 rounded-md bg-gray-50 focus:outline-blue-500 outline-offset-0 sm:h-[60px]"
+              className="block border w-full py-2 px-5 text-gray-950 placeholder:text-gray-950 rounded-md bg-gray-50 focus:outline-blue-500 outline-offset-0 sm:h-[60px]"
               placeholder="Enter your email address"
               defaultValue={state?.values?.email || ""}
               aria-invalid={state?.errors?.email ? "true" : "false"}

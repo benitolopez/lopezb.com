@@ -44,15 +44,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     hr: () => <hr className="mb-5" />,
     p: ({ children }) => (
-      <p className="leading-7 text-gray-900 mb-5">{children}</p>
+      <p className="leading-7 text-gray-950 mb-5">{children}</p>
     ),
     ul: ({ children }) => (
-      <ul className="leading-7 text-gray-900 mb-5 pl-3 ml-3 list-disc marker:text-gray-900">
+      <ul className="leading-7 text-gray-950 mb-5 pl-3 ml-3 list-disc marker:text-gray-950">
         {children}
       </ul>
     ),
     ol: ({ children }) => (
-      <ol className="leading-7 text-gray-900 mb-5 pl-4 list-decimal marker:text-gray-900">
+      <ol className="leading-7 text-gray-950 mb-5 pl-4 list-decimal marker:text-gray-950">
         {children}
       </ol>
     ),
@@ -61,7 +61,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <pre className="text-[13px] border my-8 p-5 rounded-md">{children}</pre>
     ),
     a: ({ children, ...props }) => (
-      <a className="text-gray-900 underline" {...props}>
+      <a
+        className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
+        {...props}
+      >
         {children}
       </a>
     ),

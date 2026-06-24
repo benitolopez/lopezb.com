@@ -24,7 +24,7 @@ export default function NewsletterConfirm() {
         <h1 className="title leading-7 text-2xl font-bold text-black mb-5">
           You're all set!
         </h1>
-        <p className="leading-7 text-gray-900 mb-10">
+        <p className="leading-7 text-gray-950 mb-10">
           Thank you for confirming your subscription to my newsletter. You'll
           now receive important product updates, feature announcements, and key
           information straight to your inbox.

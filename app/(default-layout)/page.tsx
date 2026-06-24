@@ -8,18 +8,18 @@ export default function Home() {
         Benito Lopez
       </h1>
       <div className="content mt-8">
-        <p className="leading-7 text-gray-900 mb-5">
+        <p className="leading-7 text-gray-950 mb-5">
           Hey there 👋. I’m a{" "}
           <a
             href="https://github.com/benitolopez"
-            className="text-gray-900 underline"
+            className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
           >
             software engineer
           </a>{" "}
           who enjoys building products and tools for the web.
         </p>
 
-        <p className="leading-7 text-gray-900 mb-5">
+        <p className="leading-7 text-gray-950 mb-5">
           I work across the full stack to build web applications, tools, and
           long-term commercial products used by thousands of people worldwide.
           Over the years, this has meant working on backend systems, APIs,
@@ -27,7 +27,7 @@ export default function Home() {
           to keep software useful over time.
         </p>
 
-        <p className="leading-7 text-gray-900 mb-5">
+        <p className="leading-7 text-gray-950 mb-5">
           I’ve been working remotely for 10+ years, which has taught me to be
           self-directed and communicate clearly.
         </p>
@@ -36,19 +36,19 @@ export default function Home() {
           WordPress
         </h2>
 
-        <p className="leading-7 text-gray-900 mb-5">
+        <p className="leading-7 text-gray-950 mb-5">
           Over the past decade, I’ve built a significant presence in the
           WordPress ecosystem. I’ve created themes, plugins, and custom
           solutions that power thousands of websites worldwide.
         </p>
 
-        <p className="leading-7 text-gray-900 mb-5">
+        <p className="leading-7 text-gray-950 mb-5">
           Throughout my WordPress journey, I achieved Elite Author status on
           Envato’s marketplace with Lollum Themes, and I’m currently part of the
           team behind{" "}
           <a
             href="https://undsgn.com/uncode/"
-            className="text-gray-900 underline"
+            className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
           >
             Uncode
           </a>
@@ -57,10 +57,13 @@ export default function Home() {
           Editor, and advanced WooCommerce features.
         </p>
 
-        <p className="leading-7 text-gray-900 mb-5">
+        <p className="leading-7 text-gray-950 mb-5">
           Alongside team projects, I also build and maintain independent
           WordPress products, including{" "}
-          <a href="https://wphotelier.com/" className="text-gray-900 underline">
+          <a
+            href="https://wphotelier.com/"
+            className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
+          >
             WP Hotelier
           </a>
           , a hotel booking plugin focused on helping small hotels and B&Bs
@@ -71,11 +74,11 @@ export default function Home() {
           Projects
         </h2>
 
-        <ul className="leading-7 text-gray-900 mb-5">
+        <ul className="leading-7 text-gray-950 mb-5">
           <li className="mb-2">
             <a
               href="https://github.com/benitolopez/limite"
-              className="text-gray-900 underline"
+              className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
             >
               Limite
             </a>{" "}
@@ -86,7 +89,7 @@ export default function Home() {
           <li className="mb-2">
             <a
               href="https://hoteldatepicker.org/"
-              className="text-gray-900 underline"
+              className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
             >
               Hotel Datepicker
             </a>{" "}
@@ -94,7 +97,10 @@ export default function Home() {
             websites. It was tricky but fun to develop!
           </li>
           <li className="mb-2">
-            <a href="https://ssnipp.com/" className="text-gray-900 underline">
+            <a
+              href="https://ssnipp.com/"
+              className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
+            >
               ssnipp
             </a>{" "}
             - A minimal private code-sharing tool I built as a lightweight
@@ -106,7 +112,7 @@ export default function Home() {
           Personal
         </h2>
 
-        <p className="leading-7 text-gray-900 mb-5">
+        <p className="leading-7 text-gray-950 mb-5">
           Born in Switzerland, raised in Spain, and living in Italy, I'm a
           father of two with diverse interests. Music is a big part of my life —
           I enjoy playing guitar, particularly exploring jazz, experimental,
@@ -114,7 +120,7 @@ export default function Home() {
           and comics.
         </p>
 
-        <p className="leading-7 text-gray-900 mb-5">
+        <p className="leading-7 text-gray-950 mb-5">
           Mathematics is another big passion, and after taking a few years away
           from formal education, I decided to return to academia and am now
           pursuing a BSc in Mathematics.
@@ -124,23 +130,26 @@ export default function Home() {
           Connect
         </h2>
 
-        <p className="leading-7 text-gray-900 mb-5">
+        <p className="leading-7 text-gray-950 mb-5">
           Reach me at{" "}
           <a
             href="https://twitter.com/LopezBenito"
-            className="text-gray-900 underline"
+            className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
           >
             @LopezBenito
           </a>
           , view my code on{" "}
           <a
             href="https://github.com/benitolopez"
-            className="text-gray-900 underline"
+            className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
           >
             GitHub
           </a>
           , or write me at{" "}
-          <a href="mailto:hello@lopezb.com" className="text-gray-900 underline">
+          <a
+            href="mailto:hello@lopezb.com"
+            className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
+          >
             hello@lopezb.com
           </a>
           .

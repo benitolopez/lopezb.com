@@ -25,7 +25,7 @@ export default function NewsletterConfirm() {
         <h1 className="title leading-7 text-2xl font-bold text-black mb-5">
           One more step!
         </h1>
-        <p className="leading-7 text-gray-900 mb-10">
+        <p className="leading-7 text-gray-950 mb-10">
           A verification email is on its way to your inbox. The email should
           arrive shortly. If it doesn't appear in your primary inbox, please
           check your promotions or spam folders.
