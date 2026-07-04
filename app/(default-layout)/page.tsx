@@ -9,28 +9,144 @@ export default function Home() {
       </h1>
       <div className="content mt-8">
         <p className="leading-7 text-gray-950 mb-5">
-          Hey there 👋. I’m a{" "}
+          Hey there. I’m a software engineer based in Italy, currently focused
+          on developer tools, AI agents, and pragmatic systems.
+        </p>
+
+        <p className="leading-7 text-gray-950 mb-5">
+          I have 10+ years of experience building web products,
+          WordPress/WooCommerce systems, and long-term commercial software used
+          by thousands of people worldwide.
+        </p>
+
+        <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
+          Current focus
+        </h2>
+
+        <p className="leading-7 text-gray-950 mb-5">
+          I’m currently focused on AI engineering and developer tools.
+        </p>
+
+        <p className="leading-7 text-gray-950 mb-5">
+          My main project is{" "}
           <a
-            href="https://github.com/benitolopez"
+            href="https://ker.dev"
             className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
           >
-            software engineer
-          </a>{" "}
-          who enjoys building products and tools for the web.
+            ker
+          </a>
+          , where I’m building an AI coding-agent daemon from first principles.
+          I’m using it to study the practical parts of agent systems: model
+          streaming, durable sessions, tool use, event logs, context ownership,
+          and the boundary between an agent runtime and its clients.
         </p>
 
-        <p className="leading-7 text-gray-950 mb-5">
-          I work across the full stack to build web applications, tools, and
-          long-term commercial products used by thousands of people worldwide.
-          Over the years, this has meant working on backend systems, APIs,
-          frontend interfaces, product features, and the maintenance work needed
-          to keep software useful over time.
-        </p>
+        <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
+          Projects
+        </h2>
 
-        <p className="leading-7 text-gray-950 mb-5">
-          I’ve been working remotely for 10+ years, which has taught me to be
-          self-directed and communicate clearly.
-        </p>
+        <div>
+          <h3 className="leading-7 text-black mb-2 font-bold">
+            <a
+              href="https://ker.dev"
+              className="underline underline-offset-4 decoration-1 decoration-gray-400"
+            >
+              ker
+            </a>
+          </h3>
+
+          <p className="leading-7 text-gray-950 mb-5">
+            A local-first AI coding-agent daemon. ker is designed as a daemon
+            that owns the agent session while clients connect to it. The goal is
+            to make project conversations, coding sessions, model context, and
+            agent actions durable, inspectable, and controlled by the user.
+          </p>
+
+          <h3 className="leading-7 text-black mb-2 font-bold ">
+            <a
+              href="https://github.com/benitolopez/limite"
+              className="underline underline-offset-4 decoration-1 decoration-gray-400"
+            >
+              Limite
+            </a>
+          </h3>
+
+          <p className="leading-7 text-gray-950 mb-5">
+            A network service for probabilistic data structures. Limite is a
+            single Go binary that speaks the Redis protocol and exposes
+            HyperLogLog, Bloom filters, Count-Min Sketch, and Top-K. I built it
+            to explore lower-level systems work, data structures, and the
+            tradeoffs behind approximate counting and membership queries.
+          </p>
+
+          <h3 className="leading-7 text-black mb-2 font-bold ">
+            <a
+              href="https://github.com/benitolopez/ssnipp"
+              className="underline underline-offset-4 decoration-1 decoration-gray-400"
+            >
+              ssnipp
+            </a>
+          </h3>
+
+          <p className="leading-7 text-gray-950 mb-5">
+            A small self-hosted code snippet sharing tool written in Go. ssnipp
+            is a simple tool for storing and sharing private snippets without
+            relying on a third-party service. It reflects my interest in small,
+            focused developer tools that solve a specific workflow problem.
+          </p>
+
+          <h3 className="leading-7 text-black mb-2 font-bold ">
+            <a
+              href="https://hoteldatepicker.org"
+              className="underline underline-offset-4 decoration-1 decoration-gray-400"
+            >
+              Hotel Datepicker
+            </a>
+          </h3>
+
+          <p className="leading-7 text-gray-950 mb-5">
+            A JavaScript date-range picker for hotel and booking websites. Hotel
+            Datepicker was built around the constraints of real booking flows:
+            minimum stays, disabled dates, check-in/check-out rules,
+            localization, and date-range selection. It has been used by many
+            hotel and hospitality websites over the years.
+          </p>
+
+          <h3 className="leading-7 text-black mb-2 font-bold ">
+            <a
+              href="https://wphotelier.com"
+              className="underline underline-offset-4 decoration-1 decoration-gray-400"
+            >
+              WP Hotelier
+            </a>
+          </h3>
+
+          <p className="leading-7 text-gray-950 mb-5">
+            A WordPress booking plugin for hotel websites. WP Hotelier provides
+            room management, bookings, rates, seasonal pricing, and
+            hotel-specific reservation flows inside WordPress. It represents a
+            large part of my experience building product software for real
+            businesses and non-technical users.
+          </p>
+
+          <h3 className="leading-7 text-black mb-2 font-bold ">
+            <a
+              href="https://undsgn.com/uncode"
+              className="underline underline-offset-4 decoration-1 decoration-gray-400"
+            >
+              Uncode
+            </a>
+          </h3>
+
+          <p className="leading-7 text-gray-950 mb-5">
+            A commercial WordPress theme and long-running product used by a
+            large customer base. My work on Uncode has included backend systems,
+            advanced customization features, WooCommerce integrations, and React
+            components for the WordPress Block Editor. It is where much of my
+            long-term experience with production software, compatibility,
+            maintenance, and user-facing product work comes from.
+          </p>
+        </div>
 
         <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
           WordPress
@@ -69,44 +185,6 @@ export default function Home() {
           , a hotel booking plugin focused on helping small hotels and B&Bs
           manage bookings directly through WordPress.
         </p>
-
-        <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
-          Projects
-        </h2>
-
-        <ul className="leading-7 text-gray-950 mb-5">
-          <li className="mb-2">
-            <a
-              href="https://github.com/benitolopez/limite"
-              className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
-            >
-              Limite
-            </a>{" "}
-            - A probabilistic data structures server written in Go. Supports
-            HyperLogLog, Bloom filters, Count-Min Sketch, and Top-K while
-            speaking the Redis protocol.
-          </li>
-          <li className="mb-2">
-            <a
-              href="https://hoteldatepicker.org/"
-              className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
-            >
-              Hotel Datepicker
-            </a>{" "}
-            - A pure JavaScript date range picker for hotels or booking
-            websites. It was tricky but fun to develop!
-          </li>
-          <li className="mb-2">
-            <a
-              href="https://ssnipp.com/"
-              className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
-            >
-              ssnipp
-            </a>{" "}
-            - A minimal private code-sharing tool I built as a lightweight
-            alternative to Pastebin for quickly sharing snippets with clients.
-          </li>
-        </ul>
 
         <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
           Personal
