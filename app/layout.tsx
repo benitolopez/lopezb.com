@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import "@/app/globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Benito Lopez",
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>{children}</body>
+      <GoogleAnalytics gaId="G-JE6RKLYY68" />
     </html>
   );
 }
