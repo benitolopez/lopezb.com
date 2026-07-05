@@ -6,7 +6,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 export const metadata: Metadata = {
   title: "Benito Lopez",
   description:
-    "Full-stack software engineer building web applications, tools, and open source projects.",
+    "Software engineer building web products, developer tools, AI agents, and pragmatic systems.",
 };
 
 export default function RootLayout({
