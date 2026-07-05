@@ -46,7 +46,7 @@ export default function Home() {
         </h2>
 
         <div>
-          <h3 className="leading-7 text-black mb-2 font-bold">
+          <h3 className="leading-7 text-gray-950 mb-2 font-bold">
             <a
               href="https://ker.dev"
               className="underline underline-offset-4 decoration-1 decoration-gray-400"
@@ -62,7 +62,7 @@ export default function Home() {
             agent actions durable, inspectable, and controlled by the user.
           </p>
 
-          <h3 className="leading-7 text-black mb-2 font-bold ">
+          <h3 className="leading-7 text-gray-950 mb-2 font-bold ">
             <a
               href="https://github.com/benitolopez/limite"
               className="underline underline-offset-4 decoration-1 decoration-gray-400"
@@ -79,7 +79,7 @@ export default function Home() {
             tradeoffs behind approximate counting and membership queries.
           </p>
 
-          <h3 className="leading-7 text-black mb-2 font-bold ">
+          <h3 className="leading-7 text-gray-950 mb-2 font-bold ">
             <a
               href="https://github.com/benitolopez/ssnipp"
               className="underline underline-offset-4 decoration-1 decoration-gray-400"
@@ -95,7 +95,7 @@ export default function Home() {
             focused developer tools that solve a specific workflow problem.
           </p>
 
-          <h3 className="leading-7 text-black mb-2 font-bold ">
+          <h3 className="leading-7 text-gray-950 mb-2 font-bold ">
             <a
               href="https://hoteldatepicker.org"
               className="underline underline-offset-4 decoration-1 decoration-gray-400"
@@ -112,7 +112,7 @@ export default function Home() {
             hotel and hospitality websites over the years.
           </p>
 
-          <h3 className="leading-7 text-black mb-2 font-bold ">
+          <h3 className="leading-7 text-gray-950 mb-2 font-bold ">
             <a
               href="https://wphotelier.com"
               className="underline underline-offset-4 decoration-1 decoration-gray-400"
@@ -129,7 +129,7 @@ export default function Home() {
             businesses and non-technical users.
           </p>
 
-          <h3 className="leading-7 text-black mb-2 font-bold ">
+          <h3 className="leading-7 text-gray-950 mb-2 font-bold ">
             <a
               href="https://undsgn.com/uncode"
               className="underline underline-offset-4 decoration-1 decoration-gray-400"
