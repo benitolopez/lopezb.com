@@ -9,8 +9,8 @@ export default function Home() {
       </h1>
       <div className="content mt-8">
         <p className="leading-7 text-gray-950 mb-5">
-          Hey there. I’m a software engineer based in Italy, currently focused
-          on developer tools, AI agents, and pragmatic systems.
+          Hey there. I’m a software engineer based in Italy. I build web
+          products, developer tools, and pragmatic software.
         </p>
 
         <p className="leading-7 text-gray-950 mb-5">
@@ -56,10 +56,10 @@ export default function Home() {
           </h3>
 
           <p className="leading-7 text-gray-950 mb-5">
-            A local-first AI coding-agent daemon. ker is designed as a daemon
-            that owns the agent session while clients connect to it. The goal is
-            to make project conversations, coding sessions, model context, and
-            agent actions durable, inspectable, and controlled by the user.
+            An AI coding-agent daemon. ker is designed as a daemon that owns the
+            agent session while clients connect to it. I’m building it to
+            explore how coding agents should handle conversations, coding
+            sessions, model context, tool use, and user control.
           </p>
 
           <h3 className="leading-7 text-gray-950 mb-2 font-bold ">
