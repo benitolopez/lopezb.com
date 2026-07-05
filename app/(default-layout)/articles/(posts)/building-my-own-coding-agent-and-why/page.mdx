@@ -1,0 +1,31 @@
+import Title from "@/components/tags/title";
+import Link from "next/link";
+
+export const metadata = {
+  title: "Building my own coding agent (and why) - Benito Lopez",
+  description:
+    "Why I’m building ker, a coding agent daemon, from first principles: to learn, own my workflow, and build stable software that respects its users.",
+  date: "2026-07-05T12:00:00Z",
+};
+
+<article className="relative">
+
+<Title
+  title={metadata.title.replace(" - Benito Lopez", "")}
+  date={metadata.date}
+  id="introduction"
+/>
+
+I’m building a coding agent. It’s called [ker](https://ker.dev). And right now it doesn’t do much: it lets you send a prompt to an OpenAI model and receive a response. Not a lot. But I’ve managed to build the foundation that will let me expand it with the features I think are necessary.
+
+Today, ker is a daemon and a bare-bones agent. No loop, no tools, no sessions, no TUI. A daemon keeps the conversation alive; a lightweight client talks to it over HTTP and SSE. The idea is that multiple clients can connect to the same session, and that a TUI is simply another client. This is ker’s philosophy.
+
+Why am I building yet another coding agent in 2026? Well, first of all, because it’s fun and it lets me learn. I already consider that a very good reason. Besides, I’m not happy with the current state of coding agents. I haven’t tried them all (Claude Code is the one I use the most), but I have enough experience to know what annoys me.
+
+The thing I can least tolerate is building a good workflow for myself, only to have it regularly broken by a new update. It’s natural, and desirable, to update your way of working if that brings benefits. But it’s completely unacceptable when it happens because of a totally useless feature. Not to mention the fact that the willingness to respect backward compatibility has been lost, as has the willingness to introduce a feature as something optional [rather than enabled by default](https://github.com/anthropics/claude-code/issues/73125).
+
+What I need is a tool that aspires to be good, stable software, and that takes as its model the great software of the past, more or less recent, that made stability one of its main qualities. A good tool must improve, fix bugs, and add useful features. But it should do so with respect for the people who use it, with rare and justified breaking changes. That’s what I want ker to be.
+
+I’ll try, one piece at a time, and I’ll try to write here about how it goes.
+
+</article>
