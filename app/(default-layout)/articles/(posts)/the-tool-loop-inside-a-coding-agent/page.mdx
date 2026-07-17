@@ -1,0 +1,99 @@
+import Title from "@/components/tags/title";
+import Link from "next/link";
+import CodeTag from "@/components/tags/code";
+import { Code } from "@/components/tags/highlight";
+import snippets from "./snippets";
+
+export const metadata = {
+  title: "The Tool Loop Inside A Coding Agent - Benito Lopez",
+  description:
+    "A practical explanation of the tool loop inside a coding agent, how models request tools, and what the harness actually does.",
+  date: "2026-07-17T00:00:00Z",
+};
+
+<article className="relative">
+
+<Title
+  title={metadata.title.replace(" - Benito Lopez", "")}
+  date={metadata.date}
+  id="introduction"
+/>
+
+The loop of a coding agent is essentially this:
+
+1. The harness sends the model the prompt, the conversation history, and the description of the available tools.
+2. The model generates a textual response, one or more tool requests, or both.
+3. The harness receives and interprets these requests.
+4. The harness executes the tools and associates each result with the corresponding call.
+5. The results are added to the conversation history.
+6. The updated history is sent back to the model.
+7. The loop continues until the model responds without requesting any more tools (or until the harness stops it because of an error, cancellation, or another configured limit).
+
+So, if you think about it, the core of a coding agent is actually very simple.
+
+I have to say that, before venturing into the development of [ker](https://ker.dev), I had the impression that a coding agent was much more complicated. And, even though it made no sense, I was convinced that it was the agent that decided when to execute certain functions in order to provide the model with a context to work on.
+
+I imagined some kind of “intelligent” orchestrator external to the model: something that would analyze the LLM’s response, autonomously understand that it was time to read a file, modify it, or execute a command, and only then return the new context to the model. In other words, I thought that the real “operational intelligence” resided in the agent.
+
+What surprised me was discovering that it was not a separate orchestrator inside the harness deciding when to read a file or execute a command. At least, not in the modern coding agents we are used to (Claude Code, Codex, Pi, OpenCode, and so on). It was the model itself requesting those operations by generating tool calls, while the harness handled the mostly deterministic part: interpreting and validating the calls, executing them, and returning their results.
+
+Once you change your perspective, everything becomes simpler.
+
+## Agent loop
+
+The first thing I would like to try to demystify is the agent loop. In its most stripped-down version, it is little more than a loop: you send the model the conversation history together with the tools it can use, add its response to the history, and check whether it has requested the execution of any tools.
+
+<Code code={snippets[0].snippet} />
+
+The interesting part is that the output of each tool is returned to the model, which is then able to decide how to proceed. This makes sense, because it allows the model to move forward and solve the problem progressively, receiving the information it needs at each step.
+One thing to keep in mind is that the path towards a solution is not predetermined. Within the constraints imposed by the prompt, the available tools, and the harness, the model decides how to proceed.
+In ker, the concrete version of this loop [can be found](https://github.com/benitolopez/ker/blob/v0.4.0/packages/engine/src/index.ts#L30-L76) in <CodeTag>createHarness()</CodeTag>.
+
+## Tools
+
+But what is a tool, really?
+
+From the model’s point of view, a tool is not an executable function. It is a description generally made up of three elements:
+
+- a name
+- a natural-language description
+- a schema defining the accepted arguments
+
+In ker, this representation is defined in the <CodeTag>Llm.Tool</CodeTag> [interface](https://github.com/benitolopez/ker/blob/v0.4.0/packages/llm/src/index.ts#L15-L21)
+
+<Code code={snippets[1].snippet} />
+
+So the model is not given the function’s code, but rather its schema, together with a description and the accepted arguments.
+
+Let’s take ker’s <CodeTag>read</CodeTag> tool as an example. Its definition tells the model that there is an operation called <CodeTag>read</CodeTag>, that it is used to read a UTF-8 file, and that it accepts a path, an offset, and a limit. In the same object, ker also stores [the function](https://github.com/benitolopez/ker/blob/v0.4.0/packages/agent/src/index.ts#L25-L53) that will actually be executed to read the file.
+
+When the model decides to use this tool, it does not call that function directly. Instead, it generates a structured request similar to this:
+
+<Code code={snippets[2].snippet} />
+
+The model has generated the name of the tool and its arguments. It has not read anything yet.
+
+It is the harness that must:
+
+1. find the tool called <CodeTag>read</CodeTag>
+2. parse the JSON string
+3. validate the arguments
+4. call <CodeTag>execute()</CodeTag>
+5. collect the result
+6. return it to the model, associating it with the <CodeTag>call_id</CodeTag>
+
+All of this [can be seen](https://github.com/benitolopez/ker/blob/v0.4.0/packages/engine/src/index.ts#L211-L222) in <CodeTag>runTool()</CodeTag>.
+
+Essentially, <CodeTag>runTool()</CodeTag> looks for the requested tool, interprets the arguments generated by the model, and calls its <CodeTag>execute()</CodeTag> function. If something goes wrong (for example, the tool does not exist, the JSON is invalid, or the execution fails) ker turns the error into a result that the model can observe.
+
+Once the tool has been executed, its result is associated with the call through the <CodeTag>call_id</CodeTag> and added to the conversation history. On the next turn, the model therefore receives not only the previous messages, but also the request it generated and the observation produced by the execution.
+
+For example, if the <CodeTag>read</CodeTag> tool returns the contents of a file, the model may decide to modify it using the <CodeTag>edit</CodeTag> tool. If the execution of a tool fails, the model can read the error and attempt to correct it.
+
+It is this continuous interaction that makes the system agentic. Not the individual tool call.
+
+The intelligent orchestrator I imagined does exist, but it is not the harness: it is the model. The harness interprets, validates, executes, and returns. No magic.
+
+This does not mean that building a good one is easy. The complexity is still there (context, tool descriptions, errors, permissions), but it comes after understanding the loop. Not before.
+
+</article>
