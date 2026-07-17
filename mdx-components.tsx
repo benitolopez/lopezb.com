@@ -52,7 +52,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </ul>
     ),
     ol: ({ children }) => (
-      <ol className="leading-7 text-gray-950 mb-5 pl-4 list-decimal marker:text-gray-950">
+      <ol className="leading-7 text-gray-950 mb-5 pl-3 ml-3 list-decimal marker:text-gray-950">
         {children}
       </ol>
     ),
