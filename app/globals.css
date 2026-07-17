@@ -55,11 +55,11 @@ pre button.rehype-pretty-copy {
   display: none !important;
 }
 
-@media (min-width: 640px) {
+/* @media (min-width: 640px) {
   pre button.rehype-pretty-copy {
     display: flex !important;
   }
-}
+} */
 
 .note p {
   margin-bottom: 0;
