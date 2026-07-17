@@ -4,6 +4,7 @@ import "@/app/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lopezb.com"),
   title: "Benito Lopez",
   description:
     "Software engineer building web products, developer tools, AI agents, and pragmatic systems.",
