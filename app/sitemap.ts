@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
+      url: "https://lopezb.com/articles/the-hard-parts-of-context-compaction",
+      lastModified: new Date("2026-08-03"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: "https://lopezb.com/articles/the-tool-loop-inside-a-coding-agent",
       lastModified: new Date("2026-07-17"),
       changeFrequency: "weekly",

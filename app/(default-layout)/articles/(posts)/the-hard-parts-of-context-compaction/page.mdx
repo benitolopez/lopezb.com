@@ -1,0 +1,169 @@
+import Title from "@/components/tags/title";
+import CodeTag from "@/components/tags/code";
+import Note from "@/components/tags/note";
+import Image from "next/image";
+import { Code } from "@/components/tags/highlight";
+import Toc from "@/components/posts/toc";
+import snippets from "./snippets";
+
+export const metadata = {
+  title: "The Hard Parts Of Context Compaction - Benito Lopez",
+  description:
+    "A practical explanation of context compaction in a coding agent, when to prune tool outputs, how summaries are created, and what can go wrong.",
+  date: "2026-08-03T00:00:00Z",
+};
+
+<article className="relative">
+
+<Title
+  title={metadata.title.replace(" - Benito Lopez", "")}
+  date={metadata.date}
+  id="introduction"
+/>
+
+Compaction is the practice of making a conversation (often a long one that is close to the context window limit) shorter. It involves summarizing its content and trying to preserve the main information so that an agent can continue the conversation without a loss in performance.
+
+Although the basic idea is fairly simple, the compaction process inside a harness has many pitfalls. I encountered them while implementing compaction in [ker](https://ker.dev).
+
+ker is still in a fully pre-alpha stage, and this is the first time I have dealt with this problem. So I do not claim to have much authority on the subject. Nor do I claim that ker's current implementation is state of the art. But I believe this article may contain some interesting insights.
+
+## What compaction is
+
+To understand what compaction is, you first need to understand what happens during a conversation with a coding agent. In a stateless harness such as ker, the agent is a loop that accumulates information. Every message from the user or the model, and every tool result, is appended to a list that is sent again in full with every request.
+
+The list grows with every turn, while the context window (meaning the maximum number of tokens that a single request can occupy, including the response) never grows. At some point, something has to be cut to avoid exceeding this limit.
+
+The process is relatively simple:
+
+- Choose a cutoff point in the conversation.
+- Ask a model to summarize everything that comes before the cutoff.
+- Put the summary at the beginning of the list, replacing what came before the cutoff.
+- The more recent part (the part after the cutoff) remains unchanged.
+
+<Image
+  src={`/blog/compaction/cut.png`}
+  width="615"
+  height="363"
+  className="mb-5 mx-auto border w-[615px] max-w-[calc(100vw_-_3rem)]"
+  alt="A message list before and after compaction: the prefix is replaced by a single summary message, while the recent tail is kept verbatim"
+/>
+
+On the next turn, the model will see a summary instead of the user and model exchanges. This should (hopefully) allow the model to continue the conversation in a similar way, without a loss in performance. But it is still a checkpoint that loses information.
+
+## Own the compaction
+
+ker's philosophy is to maintain an audit trail that captures as much of the conversation as possible. This is done by saving everything necessary in the <CodeTag>session.jsonl</CodeTag> file, so that the entire history can be reconstructed by either a human or an agent.
+
+For this reason, the first decision was not to rely on the compaction endpoints offered by providers. As the Earendil team explains well in [this post](https://earendil.com/posts/session-portability/), OpenAI's server-side compaction returns an encrypted compaction item that only OpenAI can decrypt. It can be passed back to OpenAI, but it cannot be used in other providers. So, if I had used this feature directly, I would have ended up with an indecipherable entry in <CodeTag>session.jsonl</CodeTag>.
+
+ker therefore creates the compaction manually by making a request to the LLM.
+
+<Code code={snippets[0].snippet} />
+
+<Note>
+  The summarizer prompt and the assembly of this request started from
+  [pi](https://github.com/earendil-works/pi)'s compaction prompts; what ker
+  builds around them, how the request is fitted, retried, and committed, is its
+  own.
+</Note>
+
+It is worth pointing out that, at this stage, the model is no longer a coding agent. It has a different system prompt, no tools, and the conversation is flattened into a single message. The model receives a document to summarize. If it received that document as its own history instead, the most natural thing for it to do would be to resume the unfinished work rather than summarize it.
+
+## Before compacting, throw things away
+
+During a work session, most of the context is not conversation, but file contents and command outputs. A read of a thousand-line file takes up as much space as dozens of exchanges between the user and the model. Summarizing all that stuff would be a waste because the model can read those files again later if necessary. Those files will also often have changed in the meantime. It is better to throw them away.
+
+<CodeTag>pruneToolOutputs</CodeTag> replaces the oldest tool results with this
+string:
+
+<Code code={snippets[1].snippet} />
+
+The model is told that something has been removed and how to retrieve it.
+
+But how much pruning? ker never prunes what is needed right now, so the last two user turns remain intact. From there, working backward, it begins adding up the tool results. It keeps their output if the total does not exceed 40,000 estimated tokens. If it finds a tool whose output pushes the total past that threshold, its output is pruned, along with the outputs of all earlier tools.
+
+<Note>
+  Both thresholds, the 40,000 kept here and the 20,000 minimum below, follow
+  [opencode](https://github.com/anomalyco/opencode)'s prune defaults. When
+  pruning runs is where ker differs.
+</Note>
+
+ker never prunes ahead of time or continuously. At first glance, a continuous pruning strategy that keeps the context clean might seem like a good idea. But this means rewriting the conversation prefix, invalidating the provider's cache, and increasing costs. All of this would be done to free space that was not needed yet. So ker prunes only at the moment the threshold is exceeded, when the cache was going to be invalidated anyway.
+
+For the same reasons, if pruning does not free at least 20,000 estimated tokens, it is not performed. A log record, a reconstructed harness, and an invalidated prefix cache are not worth a few thousand tokens.
+
+All of this assumes that the context consists mostly of tool outputs, which is ker's use case. When it does not, pruning either finds nothing to do or leaves a large number of tokens behind. In that case, compaction handles them anyway.
+
+## When to compact
+
+You need to compact before reaching the limit because the turn that is about to start has to fit inside it. If you compact only when the context is already at the limit, there is no space left for either the user's prompt or the model's response.
+
+The threshold is therefore calculated by subtracting from the limit:
+
+<Code code={snippets[2].snippet} />
+
+In ker, <CodeTag>reserveTokens</CodeTag> is configurable by the user, so a threshold obtained through subtraction needs a sign check. If the trigger is zero or below, every context appears to be above the threshold, and automatic compaction and pruning are disabled.
+
+There is still one point I am not satisfied with.
+
+ker does not ask the model how large its context window is. It assumes a window of 272,000 tokens for every tracked model, and the script that generates the model list only checks that none of them has a smaller one. On a model that declares a one-million-token context window, ker uses little more than a quarter of it.
+
+This is a deliberate choice. [Chroma's research on context rot](https://research.trychroma.com/context-rot) shows that performance can degrade as the input grows, even on trivial tasks and long before the context window limit is reached. Stopping at 272,000 on a model like GPT-5.6 will hopefully make ker compact before quality degrades too far.
+
+The problem is that, besides probably being too low, that number is not presented for what it really is. The threshold treats it as if it were the model's capacity. <CodeTag>reserveTokens</CodeTag> is subtracted from it, and the check that rejects prompts when the context no longer fits also treats it that way. On a model that would accept one million tokens, ker rejects the request at 272,000 and tells the user that the session context is full. It is not full. The budget I gave myself is full.
+
+The two need to be separated. On one side, there is the amount the model accepts. This is a fact and is needed to determine when to reject a request. On the other side, there is the amount I choose to use. This is a policy and belongs in the compaction configuration alongside <CodeTag>reserveTokens</CodeTag>. Today, they are the same variable, and that needs to be fixed.
+
+## When compaction fails
+
+In a harness, and more specifically in ker, compaction can fail at different stages.
+
+### The request does not fit
+
+The compaction request is itself a request to the model, built from the part of the conversation that is about to be replaced. Since the conversation is already near ker's working limit, that part may still be too large.
+
+Every tool result is therefore always truncated to 2,000 characters and every user message to 8,000. The beginning and the end are kept, and the text states how many characters were removed.
+
+It is important to note that the request is truncated, not the conversation. Only the view received by the model responsible for writing the summary is reduced.
+
+If the text still exceeds the request budget, entire messages begin to be removed, starting with the oldest. They are replaced with a line stating how many messages were omitted. This is the last resort.
+
+Of course, the instructions (the template that explains how to structure the summary), the previous summary, and any optional focus are never removed. Part of the conversation can be discarded, but the instructions that make the request a summarization request cannot.
+
+If the provider rejects the request for context overflow, the budget is halved and the prompt is rebuilt, up to three times. The process stops if the new prompt is not actually shorter than the previous one.
+
+### The attempt can die halfway through
+
+During a normal turn, once ker has already produced text visible to the user, it stops retrying. If a compaction attempt dies halfway through, however, ker can try again because the partial summary is never shown to the user as part of the conversation. In practice, nobody has received anything.
+
+### The response is not good
+
+The model may return a disproportionately long summary, a response that the provider marks as truncated, an empty string, and so on. The result is discarded. There will be no further automatic attempts until the context has grown by half the distance to the limit. Retrying with the same prompt, the same model, and the same conversation could produce the same failure mode, and ker could enter an infinite loop.
+
+### A good summary may still be useless
+
+A short summary does not guarantee a shorter context. If the remaining tail is still enormous, the summary changes nothing. For this reason, the context is measured before and after compaction. If it has not become smaller, the summary is discarded without changing the conversation.
+
+## Compaction is a commit
+
+The summary is calculated from a snapshot of the history. Nothing is modified until the process reaches the end, so there is nothing to roll back.
+
+First, the record is appended to <CodeTag>session.jsonl</CodeTag>. One of its fields is <CodeTag>firstKeptEntryId</CodeTag>, the ID of the conversation record where the tail kept verbatim begins. In this way, compaction adds to the history without rewriting it and records a pointer into the existing chain. Only the reconstruction changes.
+
+Only at this point is the in-memory conversation replaced with the new one. If the order were reversed, a process that died between the two steps would leave the memory ahead of the file. The compacted conversation would exist only for as long as the daemon remained alive. With this order, every state is recoverable. If the record exists, reconstruction completes the work automatically. If it does not, the conversation remains in its original state.
+
+Two different types of context modifications end up in the file: pruning operations and compactions. Reconstructing the conversation means applying them again in the same sequence in which they were written. If only the latest compaction were applied, previously pruned tool outputs in the retained tail could reappear.
+
+Anyone who opens <CodeTag>session.jsonl</CodeTag> a month later will find everything: every original message, the summary, and the exact point where it was inserted.
+
+## What it costs
+
+Compaction is not free. Creating the summary costs a model call. It also rewrites the conversation prefix, so the next request generally has to prefill the compacted conversation again because the conversation history no longer matches the cached prefix. The system prompt and tool definitions may still be cached because they have not changed.
+
+This is why ker waits until its threshold is exceeded instead of compacting continuously. Compacting earlier may still be worth it if the improvement in quality, latency, or future token costs outweighs the extra cost.
+
+Pruning also breaks cache reuse, but only from the first tool result it changes onward, and it does not cost a model call. The model can often recover the needed information by rereading a file or rerunning a command, although the exact result may no longer be reproducible.
+
+A summary always loses something. Nothing I have described makes it any less lossy. The thresholds and checks exist to ensure that the context actually becomes smaller, not to make the checkpoint faithful.
+
+</article>
