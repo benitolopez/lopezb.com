@@ -33,14 +33,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       return (
         <h3
           id={id}
-          className="lleading-7 text-black mt-12 mb-4 font-bold text-lg"
+          className="lleading-7 text-black mt-4 mb-4 font-bold text-lg"
         >
           {children}
         </h3>
       );
     },
     h4: ({ children }) => (
-      <h4 className="leading-7 text-black mt-12 mb-3 font-bold">{children}</h4>
+      <h4 className="leading-7 text-black mt-4 mb-3 font-bold">{children}</h4>
     ),
     hr: () => <hr className="mb-5" />,
     p: ({ children }) => (
