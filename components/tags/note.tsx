@@ -5,12 +5,16 @@ export default function Note({
   title,
 }: {
   children: React.ReactNode;
-  title: string;
+  title?: string;
 }) {
   return (
-    <div className="note rounded-md leading-7 text-gray-950 mb-5 border p-5 text-sm bg-white">
-      {title && <strong className="font-bold text-gray-950">{title}:</strong>}
-      <div className="m-0">{children}</div>
-    </div>
+    <aside className="note mb-5 rounded-md border border-gray-200 bg-gray-50 px-4 py-3 text-sm leading-6 text-gray-600">
+      {title && (
+        <strong className="mb-1 block font-semibold text-gray-950">
+          {title}
+        </strong>
+      )}
+      <div>{children}</div>
+    </aside>
   );
 }
