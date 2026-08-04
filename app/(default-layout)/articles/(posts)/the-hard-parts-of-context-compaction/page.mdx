@@ -148,7 +148,7 @@ A short summary does not guarantee a shorter context. If the remaining tail is s
 
 The summary is calculated from a snapshot of the history. Nothing is modified until the process reaches the end, so there is nothing to roll back.
 
-First, the record is appended to <CodeTag>session.jsonl</CodeTag>. One of its fields is <CodeTag>firstKeptEntryId</CodeTag>, the ID of the conversation record where the tail kept verbatim begins. In this way, compaction adds to the history without rewriting it and records a pointer into the existing chain. Only the reconstruction changes.
+First, the record is appended to <CodeTag>session.jsonl</CodeTag>. Along with the summary, it stores the ID of the conversation record where the tail kept verbatim begins. In this way, compaction adds to the history without rewriting it and records a pointer into the existing chain. Only the reconstruction changes.
 
 Only at this point is the in-memory conversation replaced with the new one. If the order were reversed, a process that died between the two steps would leave the memory ahead of the file. The compacted conversation would exist only for as long as the daemon remained alive. With this order, every state is recoverable. If the record exists, reconstruction completes the work automatically. If it does not, the conversation remains in its original state.
 
