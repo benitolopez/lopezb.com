@@ -9,36 +9,20 @@ export default function Home() {
       </h1>
       <div className="content mt-8">
         <p className="leading-7 text-gray-950 mb-5">
-          Hey there. I’m a software engineer based in Italy. I build web
-          products, developer tools, and pragmatic software.
+          Hey there. I’m a software engineer based in Italy with 10+ years of
+          experience building web products, developer tools, WordPress and
+          WooCommerce systems, and commercial software.
         </p>
 
         <p className="leading-7 text-gray-950 mb-5">
-          I have 10+ years of experience building web products,
-          WordPress/WooCommerce systems, and long-term commercial software used
-          by thousands of people worldwide.
-        </p>
-
-        <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
-          Current focus
-        </h2>
-
-        <p className="leading-7 text-gray-950 mb-5">
-          I’m currently focused on AI engineering and developer tools.
-        </p>
-
-        <p className="leading-7 text-gray-950 mb-5">
-          My main project is{" "}
+          I’m currently focused on AI engineering, and my main project is{" "}
           <a
             href="https://ker.dev"
             className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
           >
             ker
           </a>
-          , where I’m building an AI coding-agent daemon from first principles.
-          I’m using it to study the practical parts of agent systems: model
-          streaming, durable sessions, tool use, event logs, context ownership,
-          and the boundary between an agent runtime and its clients.
+          , a minimal coding agent.
         </p>
 
         <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
@@ -56,10 +40,10 @@ export default function Home() {
           </h3>
 
           <p className="leading-7 text-gray-950 mb-5">
-            An AI coding-agent daemon. ker is designed as a daemon that owns the
-            agent session while clients connect to it. I’m building it to
-            explore how coding agents should handle conversations, coding
-            sessions, model context, tool use, and user control.
+            A minimal coding agent. ker runs as a long-lived daemon that owns
+            the conversation state while a thin HTTP client sends prompts to it.
+            It has durable sessions, queued prompts, bounded tool output, and
+            context compaction. Written in TypeScript.
           </p>
 
           <h3 className="leading-7 text-gray-950 mb-2 font-bold ">
@@ -74,9 +58,7 @@ export default function Home() {
           <p className="leading-7 text-gray-950 mb-5">
             A network service for probabilistic data structures. Limite is a
             single Go binary that speaks the Redis protocol and exposes
-            HyperLogLog, Bloom filters, Count-Min Sketch, and Top-K. I built it
-            to explore lower-level systems work, data structures, and the
-            tradeoffs behind approximate counting and membership queries.
+            HyperLogLog, Bloom filters, Count-Min Sketch, and Top-K.
           </p>
 
           <h3 className="leading-7 text-gray-950 mb-2 font-bold ">
@@ -90,9 +72,8 @@ export default function Home() {
 
           <p className="leading-7 text-gray-950 mb-5">
             A small self-hosted code snippet sharing tool written in Go. ssnipp
-            is a simple tool for storing and sharing private snippets without
-            relying on a third-party service. It reflects my interest in small,
-            focused developer tools that solve a specific workflow problem.
+            stores and shares private snippets without relying on a third-party
+            service.
           </p>
 
           <h3 className="leading-7 text-gray-950 mb-2 font-bold ">
@@ -105,11 +86,9 @@ export default function Home() {
           </h3>
 
           <p className="leading-7 text-gray-950 mb-5">
-            A JavaScript date-range picker for hotel and booking websites. Hotel
-            Datepicker was built around the constraints of real booking flows:
-            minimum stays, disabled dates, check-in/check-out rules,
-            localization, and date-range selection. It has been used by many
-            hotel and hospitality websites over the years.
+            A JavaScript date-range picker for hotel and booking websites. It
+            handles minimum stays, disabled dates, check-in/check-out rules,
+            localization, and date-range selection.
           </p>
 
           <h3 className="leading-7 text-gray-950 mb-2 font-bold ">
@@ -122,11 +101,9 @@ export default function Home() {
           </h3>
 
           <p className="leading-7 text-gray-950 mb-5">
-            A WordPress booking plugin for hotel websites. WP Hotelier provides
-            room management, bookings, rates, seasonal pricing, and
-            hotel-specific reservation flows inside WordPress. It represents a
-            large part of my experience building product software for real
-            businesses and non-technical users.
+            A WordPress booking plugin for hotel websites. It provides room
+            management, bookings, rates, seasonal pricing, and hotel-specific
+            reservation flows inside WordPress.
           </p>
 
           <h3 className="leading-7 text-gray-950 mb-2 font-bold ">
@@ -139,12 +116,9 @@ export default function Home() {
           </h3>
 
           <p className="leading-7 text-gray-950 mb-5">
-            A commercial WordPress theme and long-running product used by a
-            large customer base. My work on Uncode has included backend systems,
-            advanced customization features, WooCommerce integrations, and React
-            components for the WordPress Block Editor. It is where much of my
-            long-term experience with production software, compatibility,
-            maintenance, and user-facing product work comes from.
+            A commercial WordPress theme. My work on Uncode covers backend
+            systems, advanced customization features, WooCommerce integrations,
+            and React components for the WordPress Block Editor.
           </p>
         </div>
 
@@ -153,37 +127,25 @@ export default function Home() {
         </h2>
 
         <p className="leading-7 text-gray-950 mb-5">
-          Over the past decade, I’ve built a significant presence in the
-          WordPress ecosystem. I’ve created themes, plugins, and custom
-          solutions that power thousands of websites worldwide.
-        </p>
-
-        <p className="leading-7 text-gray-950 mb-5">
-          Throughout my WordPress journey, I achieved Elite Author status on
-          Envato’s marketplace with Lollum Themes, and I’m currently part of the
-          team behind{" "}
+          I’ve worked in the WordPress ecosystem for over a decade, building
+          themes, plugins, and custom solutions. I reached Elite Author status
+          on Envato’s marketplace with Lollum Themes, and I’m currently part of
+          the team behind{" "}
           <a
             href="https://undsgn.com/uncode/"
             className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
           >
             Uncode
           </a>
-          , one of the most popular WordPress themes on the market. My work
-          mainly focuses on backend development, React components for the Block
-          Editor, and advanced WooCommerce features.
-        </p>
-
-        <p className="leading-7 text-gray-950 mb-5">
-          Alongside team projects, I also build and maintain independent
-          WordPress products, including{" "}
+          . Alongside team projects, I build and maintain my own WordPress
+          products, including{" "}
           <a
             href="https://wphotelier.com/"
             className="text-gray-950 underline underline-offset-4 decoration-1 decoration-gray-400"
           >
             WP Hotelier
           </a>
-          , a hotel booking plugin focused on helping small hotels and B&Bs
-          manage bookings directly through WordPress.
+          .
         </p>
 
         <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
@@ -191,17 +153,13 @@ export default function Home() {
         </h2>
 
         <p className="leading-7 text-gray-950 mb-5">
-          Born in Switzerland, raised in Spain, and living in Italy, I'm a
-          father of two with diverse interests. Music is a big part of my life —
-          I enjoy playing guitar, particularly exploring jazz, experimental,
-          noise, electronic, and ambient genres. I also spend time reading books
-          and comics.
+          Born in Switzerland, raised in Spain, and living in Italy. I’m a
+          father of two. I play guitar (mostly jazz, experimental, noise,
+          electronic, and ambient) and I read books and comics.
         </p>
 
         <p className="leading-7 text-gray-950 mb-5">
-          Mathematics is another big passion, and after taking a few years away
-          from formal education, I decided to return to academia and am now
-          pursuing a BSc in Mathematics.
+          I’m also pursuing a BSc in Mathematics.
         </p>
 
         <h2 className="leading-7 text-black mt-12 mb-5 font-bold text-xl">
